@@ -3,3 +3,5 @@ media/
 .idea/
 db.sqlite3/
 db.sqlite3
+
+my_django/db.sqlite3/
