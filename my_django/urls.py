@@ -18,10 +18,9 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from django.urls import path
+from django.urls import path, include
 
-from publication_app.views import main_page
-
+from publication_app.views import *
 
 # def empty_view(request):
 #     return HttpResponse("Empty View")
@@ -29,10 +28,15 @@ from publication_app.views import main_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main_page, name='main_page'),
+    path('', include('publication_app.urls'))
+    # path('', main_page, name='main_page'),
+    # path('cats/', categories, name='cats')
     # path('', empty_view, name='empty_view'),
+    # path('picture/', )
 
 ]
+# обрабатываем исключение 404 и в view выводим другое сообщение
+handler404 = pageNotFound
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
