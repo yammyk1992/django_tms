@@ -4,13 +4,20 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .models import *
 
+menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
+
 
 def main_page(request):
     posts = Post.objects.filter(is_public=True).order_by('created_at', 'id', ).all()
 
-    contex = {'title': 'HI ALL', 'posts': posts}
+    # contex = {'title': 'HI ALL', 'posts': posts}
+    # contex = {'title': 'HI ALL'}
     # наполнение шаблона данными - render
-    return render(request, 'main_page.html', contex)
+    return render(request, 'publication_app/main_page.html', {'posts': posts, 'menu': menu, 'title': 'Главная страница'})
+
+
+def about(request):
+    return render(request, 'publication_app/about.html', {'menu': menu, 'title': 'О сайте'})
 
 
 def categories(request, catid):
@@ -21,7 +28,7 @@ def categories(request, catid):
 
 def archive(request, year):
     if int(year) > 2020:
-        return redirect("/")
+        return redirect("home", permanent=True)
 
     return HttpResponse(f"<h1> Архив по годам </h1><p> {year} </p>")
 

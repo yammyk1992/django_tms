@@ -11,6 +11,10 @@ class Post(models.Model):
     is_public = models.BooleanField(default=True, verbose_name='Публикация')
     image = models.ImageField(null=True, blank=True, verbose_name='Фото')
 
+    # для вывода в режиме shell терминал заголовков объектов из базы данных
+    def __str__(self):
+        return self.title
+
     # меняем язык отображения в админке
     class Meta:
         verbose_name = 'Пост'
