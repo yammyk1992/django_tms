@@ -1,37 +1,57 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from .models import *
 
-menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти"]
+menu = [{'title': "О сайте", 'url_name': 'about'},
+        {'title': "Добавить статью", 'url_name': 'add_page'},
+        {'title': "Обратная связь", 'url_name': 'contact'},
+        {'title': "Войти", 'url_name': 'login'}
+        ]
 
 
 def main_page(request):
-    posts = Post.objects.filter(is_public=True).order_by('created_at', 'id', ).all()
+    posts = Post.objects.all()
+    cats = Category.objects.all()
+    context = {'posts': posts, 'cats': cats, 'menu': menu, 'title': 'Главная страница', 'cat_selected': 0, }
 
-    # contex = {'title': 'HI ALL', 'posts': posts}
-    # contex = {'title': 'HI ALL'}
     # наполнение шаблона данными - render
-    return render(request, 'publication_app/main_page.html', {'posts': posts, 'menu': menu, 'title': 'Главная страница'})
+    return render(request, 'publication_app/main_page.html', context=context)
 
 
 def about(request):
     return render(request, 'publication_app/about.html', {'menu': menu, 'title': 'О сайте'})
 
 
-def categories(request, catid):
-    if request.POST:
-        print(request.POST)
-    return HttpResponse(f"<h1> Статьи по категориям </h1><p> {catid} </p>")
+def addpage(request):
+    return HttpResponse('Добавление статьи')
 
 
-def archive(request, year):
-    if int(year) > 2020:
-        return redirect("home", permanent=True)
+def contact(request):
+    return HttpResponse('Обратная связь')
 
-    return HttpResponse(f"<h1> Архив по годам </h1><p> {year} </p>")
+
+def login(request):
+    return HttpResponse('Авторизация')
+
+
+def show_post(request, post_id):
+    return HttpResponse(f"Отображение статьи с id = {post_id}")
 
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound("<h1> Страница не найдена </h1>")
+
+
+def show_category(request, category_id):
+    posts = Post.objects.filter(category_id=category_id)
+    cats = Category.objects.all()
+
+    if len(posts) == 0:
+        raise Http404()
+
+    context = {'posts': posts, 'cats': cats, 'menu': menu, 'title': 'Главная страница', 'cat_selected': category_id, }
+
+    # наполнение шаблона данными - render
+    return render(request, 'publication_app/main_page.html', context=context)
