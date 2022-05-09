@@ -18,6 +18,9 @@ class PostAdmin(admin.ModelAdmin):
     # фильтр списка статей
     list_filter = ('is_public', 'created_at')
 
+    # заполняется слаг автоматически
+    prepopulated_fields = {'slug': ('title', )}
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -26,4 +29,7 @@ class CategoryAdmin(admin.ModelAdmin):
     # поиск по заголовку
     search_fields = ('name',)
     list_display_links = ('id', 'name')
+
+    # заполняется слаг автоматически
+    prepopulated_fields = {'slug': ('name', )}
 

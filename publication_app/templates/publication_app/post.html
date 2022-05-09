@@ -1,0 +1,11 @@
+{% extends 'publication_app/base.html' %}
+{% block content %}
+
+<h1>{{ post.title }}</h1>
+
+{% if post.image %}
+<p><img class="img-article-left" src="{{post.image.url}}" style="width: 175px; height: 200px"></p>
+{% endif %}
+
+{{post.content|linebreaks}}
+{% endblock %}

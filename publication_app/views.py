@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from .models import *
@@ -13,8 +13,7 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
 
 def main_page(request):
     posts = Post.objects.all()
-    cats = Category.objects.all()
-    context = {'posts': posts, 'cats': cats, 'menu': menu, 'title': 'Главная страница', 'cat_selected': 0, }
+    context = {'posts': posts, 'menu': menu, 'title': 'Главная страница', 'cat_selected': 0, }
 
     # наполнение шаблона данными - render
     return render(request, 'publication_app/main_page.html', context=context)
@@ -36,8 +35,16 @@ def login(request):
     return HttpResponse('Авторизация')
 
 
-def show_post(request, post_id):
-    return HttpResponse(f"Отображение статьи с id = {post_id}")
+def show_post(request, post_slug):
+    post = get_object_or_404(Post, slug=post_slug)
+
+    context = {
+        'post': post,
+        'menu': menu,
+        'title': post.title,
+        'cat_selected': post.category_id,
+    }
+    return render(request, 'publication_app/post.html', context=context)
 
 
 def pageNotFound(request, exception):
@@ -45,13 +52,13 @@ def pageNotFound(request, exception):
 
 
 def show_category(request, category_id):
+
     posts = Post.objects.filter(category_id=category_id)
-    cats = Category.objects.all()
 
     if len(posts) == 0:
         raise Http404()
 
-    context = {'posts': posts, 'cats': cats, 'menu': menu, 'title': 'Главная страница', 'cat_selected': category_id, }
+    context = {'posts': posts, 'menu': menu, 'title': 'Отображение по категориям', 'cat_selected': category_id, }
 
     # наполнение шаблона данными - render
     return render(request, 'publication_app/main_page.html', context=context)
