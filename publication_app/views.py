@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from .models import *
+from .forms import *
 
 menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Добавить статью", 'url_name': 'add_page'},
@@ -24,7 +25,16 @@ def about(request):
 
 
 def addpage(request):
-    return HttpResponse('Добавление статьи')
+    if request.method == 'POST':
+        form = AddPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            # print(form.cleaned_data)
+            form.save()
+            return redirect('home')
+
+    else:
+        form = AddPostForm()
+    return render(request, 'publication_app/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи '})
 
 
 def contact(request):
@@ -52,7 +62,6 @@ def pageNotFound(request, exception):
 
 
 def show_category(request, category_id):
-
     posts = Post.objects.filter(category_id=category_id)
 
     if len(posts) == 0:
