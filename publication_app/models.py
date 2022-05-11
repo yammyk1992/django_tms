@@ -37,7 +37,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category', kwargs={'category_id': self.pk})
+        return reverse('category', kwargs={'category_slug': self.slug})
 
     # меняем язык отображения в админке
     class Meta:

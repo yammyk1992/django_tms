@@ -27,7 +27,9 @@ class AddPostForm(forms.ModelForm):
             'content': forms.Textarea(attrs={'cols': 68, 'rows': 10}),
         }
 
+    # создаём собственную валидацию данных по заголовку
     def clean_title(self):
+        # метод
         title = self.cleaned_data['title']
         if len(title) > 200:
             raise ValidationError('Длина превышает 200 символов')
