@@ -1,10 +1,15 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 from .models import *
 from .forms import *
+from .utils import *
 
 menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Добавить статью", 'url_name': 'add_page'},
@@ -13,7 +18,9 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
         ]
 
 
-class PostHome(ListView):
+class PostHome(DataMixin, ListView):
+    # количество отображаемых постов на странице...
+    # paginate_by = 3
     model = Post
     template_name = 'publication_app/main_page.html'
     context_object_name = 'posts'
@@ -21,10 +28,8 @@ class PostHome(ListView):
     # создаём динамический контекст чтобы передать меню
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['menu'] = menu
-        context['title'] = 'Главная страница'
-        context['category_selected'] = 0
-        return context
+        c_def = self.get_user_context(title='Главная страница')
+        return dict(list(context.items()) + list(c_def.items()))
 
     # создаём функцию которая будет отображать публикации только которые отмечены галочкой is_public
     def get_queryset(self):
@@ -38,21 +43,24 @@ class PostHome(ListView):
 #     # наполнение шаблона данными - render
 #     return render(request, 'publication_app/main_page.html', context=context)
 
-
+# декоратор для того что-бы страницу about смотрели только зарегистрированные пользователи
+# @login_required
 def about(request):
     return render(request, 'publication_app/about.html', {'menu': menu, 'title': 'О сайте'})
 
 
 # Создание класса представлений вместо функций
-class AddPage(CreateView):
+class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     form_class = AddPostForm
     template_name = 'publication_app/addpage.html'
+    success_url = reverse_lazy('home')
+    login_url = reverse_lazy('home')
+    raise_exception = True
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Добавление статьи'
-        context['menu'] = menu
-        return context
+        c_def = self.get_user_context(title='Добавление статьи')
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 # def addpage(request):
@@ -76,7 +84,7 @@ def login(request):
     return HttpResponse('Авторизация')
 
 
-class ShowPost(DetailView):
+class ShowPost(DataMixin, DetailView):
     model = Post
     template_name = 'publication_app/post.html'
     slug_url_kwarg = 'post_slug'
@@ -84,9 +92,8 @@ class ShowPost(DetailView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = context['post'].title
-        context['menu'] = menu
-        return context
+        c_def = self.get_user_context(title=context['post'])
+        return dict(list(context.items()) + list(c_def.items()))
 
 
 # def show_post(request, post_slug):
@@ -117,7 +124,7 @@ def pageNotFound(request, exception):
 #     return render(request, 'publication_app/main_page.html', context=context)
 
 
-class PostCategory(ListView):
+class PostCategory(DataMixin, ListView):
     model = Post
     template_name = 'publication_app/main_page.html'
     context_object_name = 'posts'
@@ -130,7 +137,17 @@ class PostCategory(ListView):
     # создаём динамический контекст чтобы передать меню
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Категория - ' + str(context['posts'][0].category)
-        context['menu'] = menu
-        context['category_selected'] = context['posts'][0].category_id
-        return context
+        c_def = self.get_user_context(title='Категория - ' + str(context['posts'][0].category),
+                                      cat_selected=context['posts'][0].category_id)
+        return dict(list(context.items()) + list(c_def.items()))
+
+
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'publication_app/register.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Регистрация')
+        return dict(list(context.items()) + list(c_def.items()))
