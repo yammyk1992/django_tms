@@ -4,7 +4,10 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import logout, login
+from django.db.models import Prefetch
 
 # Create your views here.
 from .models import *
@@ -33,7 +36,7 @@ class PostHome(DataMixin, ListView):
 
     # создаём функцию которая будет отображать публикации только которые отмечены галочкой is_public
     def get_queryset(self):
-        return Post.objects.filter(is_public=True)
+        return Post.objects.filter(is_public=True).select_related('category')
 
 
 # def main_page(request):
@@ -80,8 +83,8 @@ def contact(request):
     return HttpResponse('Обратная связь')
 
 
-def login(request):
-    return HttpResponse('Авторизация')
+# def login(request):
+#     return HttpResponse('Авторизация')
 
 
 class ShowPost(DataMixin, DetailView):
@@ -147,7 +150,31 @@ class RegisterUser(DataMixin, CreateView):
     template_name = 'publication_app/register.html'
     success_url = reverse_lazy('login')
 
+    # при успешной регистрации будем сразу авторизовывать
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('home')
+
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title='Регистрация')
         return dict(list(context.items()) + list(c_def.items()))
+
+
+class LoginUser(DataMixin, LoginView):
+    form_class = AuthenticationForm
+    template_name = 'publication_app/login.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title='Авторизация')
+        return dict(list(context.items()) + list(c_def.items()))
+
+    def get_success_url(self):
+        return reverse_lazy('home')
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
