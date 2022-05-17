@@ -13,6 +13,7 @@ from django.db.models import Prefetch
 from .models import *
 from .forms import *
 from .utils import *
+from .models import *
 
 menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Добавить статью", 'url_name': 'add_page'},
@@ -99,14 +100,21 @@ class ShowPost(DataMixin, DetailView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-# def show_post(request, post_slug):
-#     post = get_object_or_404(Post, slug=post_slug)
+# def post_view(request):
+#     posts = Post.objects.all()
+#     return render(request, 'publication_app/main_page.html', {'posts': posts})
+
+
+# def show_post(request, id):
+#     post = get_object_or_404(Post, id=id)
+#     photos = PostImage.objects.filter(post=post)
 #
 #     context = {
 #         'post': post,
-#         'menu': menu,
-#         'title': post.title,
-#         'cat_selected': post.category_id,
+#         'photos': photos,
+#         # 'menu': menu,
+#         # 'title': post.title,
+#         # 'cat_selected': post.category_id,
 #     }
 #     return render(request, 'publication_app/post.html', context=context)
 

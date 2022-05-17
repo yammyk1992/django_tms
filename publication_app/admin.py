@@ -1,13 +1,32 @@
 from django.contrib import admin
 
 # Register your models here.
+from django.utils.safestring import mark_safe
+
 from .models import *
+
+
+class PostImageAdmin(admin.TabularInline):
+    readonly_fields = ('image_preview',)
+    model = PostImage
+    extra = 4
+    verbose_name = "Фотография"
+    verbose_name_plural = "Фотографии"
+
+    def image_preview(self, obj):
+        # ex. the name of column is "image"
+        if obj.image:
+            return mark_safe(
+                '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(obj.image.url))
+        else:
+            return 'Нет картинки'
 
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
+    inlines = [PostImageAdmin]
     # колонки в админке
-    list_display = ('id', 'title', 'nationality', 'created_at', 'image', 'is_public')
+    list_display = ('id', 'title', 'nationality', 'created_at', 'is_public')
     # cортировка
     ordering = ('id',)
     readonly_fields = ('created_at',)
@@ -19,7 +38,10 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('is_public', 'created_at')
 
     # заполняется слаг автоматически
-    prepopulated_fields = {'slug': ('title', )}
+    prepopulated_fields = {'slug': ('title',)}
+
+    class Meta:
+        model = Post
 
 
 @admin.register(Category)
@@ -31,5 +53,4 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'name')
 
     # заполняется слаг автоматически
-    prepopulated_fields = {'slug': ('name', )}
-
+    prepopulated_fields = {'slug': ('name',)}
