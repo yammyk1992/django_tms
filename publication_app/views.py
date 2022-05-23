@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -38,6 +39,14 @@ class PostHome(DataMixin, ListView):
     # создаём функцию которая будет отображать публикации только которые отмечены галочкой is_public
     def get_queryset(self):
         return Post.objects.filter(is_public=True).select_related('category')
+
+
+class ImageView(generic.ListView):
+    template_name = 'publication_app/main_page.html'
+    context_object_name = 'case_list'
+
+    def get_queryset(self):
+        return PostImage.objects.all()
 
 
 # def main_page(request):

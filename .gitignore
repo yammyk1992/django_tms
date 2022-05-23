@@ -1,9 +1,12 @@
-.__pycache__/
+.__pycache__
 media/
 .idea/
 db.sqlite3/
 db.sqlite3
-
-my_django/db.sqlite3/
 media
 workspace.xml
+db.sqlite3
+
+publication_app/__pycache__/
+
+my_django/__pycache__/

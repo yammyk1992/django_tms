@@ -34,6 +34,7 @@ class PostImage(models.Model):
     # id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
     post = models.ForeignKey(Post, default=None, on_delete=models.CASCADE, related_name='post')
     image = models.ImageField(null=True, blank=True, verbose_name='Фото')
+    title = models.CharField(max_length=256)
 
     def __str__(self):
         return self.post.title

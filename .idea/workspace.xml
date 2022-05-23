@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce92a153-f879-4c8f-8465-ebc98fe0bc6a" name="Changes" comment="update my django">
-      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/blockquote.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/main.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/smallmenu.png" afterDir="false" />
+    <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/main_page.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/views.py" afterDir="false" />
     </list>
@@ -21,79 +14,87 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-        <option value="HTML File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="cf56088d-ef1f-49e1-9af1-af7d24d8ab3a" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/my_django/settings.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/my_django/urls.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/publication_app/admin.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/publication_app/apps.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/publication_app/models.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/publication_app/templates/publication_app/main_page.html" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/publication_app/urls.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/publication_app/views.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
-  </component>
-  <component name="ProjectId" id="28QE4XtojmXDyfrTB892GKX31DH" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="29Fix9XWZizie8eG1gP4nP2LXdM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Артём/PycharmProjects/django&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Артём\PycharmProjects\django\publication_app\static\publication_app\images" />
-      <recent name="C:\Users\Артём\PycharmProjects\django\publication_app\templates\publication_app" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/my_django" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="5" Folder0="C:\Users\Артём\PycharmProjects\django\publication_app\templates\publication_app" Folder1="C:\Users\Артём\PycharmProjects\django\publication_app\static\publication_app\images" Folder2="C:\Users\Артём\PycharmProjects\django\publication_app\static\publication_app\images" Folder3="C:\Users\Артём\PycharmProjects\django\publication_app\static\publication_app\images" Folder4="C:\Users\Артём\PycharmProjects\django\publication_app\static\publication_app\images" CustomDictionaries="5" CustomDictionary0="$PROJECT_DIR$/publication_app/templates/publication_app/main_page.html" CustomDictionary1="$PROJECT_DIR$/publication_app/static/publication_app/images/main.ico" CustomDictionary2="$PROJECT_DIR$/publication_app/static/publication_app/images/logo.png" CustomDictionary3="$PROJECT_DIR$/publication_app/static/publication_app/images/blockquote.png" CustomDictionary4="$PROJECT_DIR$/publication_app/static/publication_app/images/smallmenu.png" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="django" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$PROJECT_DIR$/venv/bin/python" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="publication_app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="django" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/publication_app" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/publication_app" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
-    <configuration>C:\Users\Артём\AppData\Roaming\Subversion</configuration>
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ce92a153-f879-4c8f-8465-ebc98fe0bc6a" name="Changes" comment="" />
-      <created>1651140219102</created>
+      <changelist id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="" />
+      <created>1652715477707</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1651140219102</updated>
+      <updated>1652715477707</updated>
     </task>
-    <task id="LOCAL-00001" summary="update my django">
-      <created>1651820138994</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1651820138994</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,10 +107,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="add django" />
-    <MESSAGE value="update my django" />
-    <option name="LAST_COMMIT_MESSAGE" value="update my django" />
   </component>
 </project>
