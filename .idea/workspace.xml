@@ -3,6 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/css/styles.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/blockquote.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/main.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/smallmenu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
