@@ -41,9 +41,7 @@
 {% else %}
 		<li><a href="{% url 'home' %}">Все категории</a> </li>
 {% endif %}
-
-{% show_categories %}
-
+{% show_categories cat_selected=cat_selected %}
 	</ul>
 </td>
 <!-- Конец Sidebar'а -->

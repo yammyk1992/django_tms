@@ -41,12 +41,12 @@ class PostHome(DataMixin, ListView):
         return Post.objects.filter(is_public=True).select_related('category')
 
 
-class ImageView(generic.ListView):
-    template_name = 'publication_app/main_page.html'
-    context_object_name = 'case_list'
-
-    def get_queryset(self):
-        return PostImage.objects.all()
+# class ImageView(generic.ListView):
+#     template_name = 'publication_app/main_page.html'
+#     context_object_name = 'case_list'
+#
+#     def get_queryset(self):
+#         return PostImage.objects.all()
 
 
 # def main_page(request):

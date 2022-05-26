@@ -14,10 +14,10 @@ from .models import *
 #     verbose_name_plural = "Фотографии"
 #
 #     def image_preview(self, obj):
-#         # ex. the name of column is "image"
-#         if obj.image:
+#         # ex. the name of column is "images"
+#         if obj.images:
 #             return mark_safe(
-#                 '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(obj.image.url))
+#                 '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(obj.images.url))
 #         else:
 #             return 'Нет картинки'
 

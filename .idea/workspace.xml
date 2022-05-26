@@ -2,21 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/publication_app/migrations/0005_remove_post_images_post_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/blockquote.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/main.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/static/publication_app/images/smallmenu.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0002_remove_post_image_postimage.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/migrations/0002_remove_post_image_postimage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0004_post_image_delete_postimage.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/migrations/0004_post_image_delete_postimage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/css/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/blockquote.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/main.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/images/smallmenu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/addpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/addpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/list_categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/list_categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/templatetags/publication_app_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templatetags/publication_app_tags.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -24,20 +33,25 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="29Fix9XWZizie8eG1gP4nP2LXdM" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/publication_app/static/publication_app" />
+      <recent name="$PROJECT_DIR$/publication_app/static/publication_app/css/images" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/my_django" />
     </key>
@@ -86,6 +100,11 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ShelveChangesManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
@@ -120,6 +139,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>

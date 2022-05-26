@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('nationality', models.TextField(max_length=256, verbose_name='Национальность')),
                 ('content', models.TextField(blank=True, verbose_name='Пост')),
                 ('is_public', models.BooleanField(default=True, verbose_name='Публикация')),
-                ('image', models.ImageField(blank=True, null=True, upload_to='', verbose_name='Фото')),
+                ('images', models.ImageField(blank=True, null=True, upload_to='', verbose_name='Фото')),
                 ('category', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, to='publication_app.category', verbose_name='Категории')),
             ],
             options={
