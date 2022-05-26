@@ -33,7 +33,11 @@ class Post(models.Model):
 # class PostImage(models.Model):
 #     # id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
 #     post = models.ForeignKey(Post, default=None, on_delete=models.CASCADE)
+<<<<<<< HEAD
 #     images = models.ImageField(null=True, blank=True, verbose_name='Фото')
+=======
+#     image = models.ImageField(null=True, blank=True, verbose_name='Фото')
+>>>>>>> f1cc4431d0109fc20c497aae3b6fddbc0f2fb4de
 #     title = models.CharField(max_length=256)
 #
 #     def __str__(self):
