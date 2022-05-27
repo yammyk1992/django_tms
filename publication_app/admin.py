@@ -1,32 +1,24 @@
 from django.contrib import admin
-
+from django.contrib.auth.admin import UserAdmin as UserAdminBase
+from django.contrib.auth.models import User
 # Register your models here.
 from django.utils.safestring import mark_safe
 
-from .models import *
+from .models import Post, Profile, Category
 
 
-# class PostImageAdmin(admin.TabularInline):
-#     readonly_fields = ('image_preview',)
-#     model = PostImage
-#     extra = 4
-#     verbose_name = "Фотография"
-#     verbose_name_plural = "Фотографии"
-#
-#     def image_preview(self, obj):
-<<<<<<< HEAD
-#         # ex. the name of column is "images"
-#         if obj.images:
-#             return mark_safe(
-#                 '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(obj.images.url))
-=======
-#         # ex. the name of column is "image"
-#         if obj.image:
-#             return mark_safe(
-#                 '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(obj.image.url))
->>>>>>> f1cc4431d0109fc20c497aae3b6fddbc0f2fb4de
-#         else:
-#             return 'Нет картинки'
+class ProfileInline(admin.StackedInline):
+    model = Profile
+
+
+admin.site.unregister(User)
+
+
+@admin.register(User)
+class UserAdmin(UserAdminBase):
+    inlines = (
+        ProfileInline,
+    )
 
 
 @admin.register(Post)
@@ -54,6 +46,11 @@ class PostAdmin(admin.ModelAdmin):
     preview_photo.short_description = 'Превью'
 
 
+# @admin.register(Profile)
+# class ProfileAdmin(admin.ModelAdmin):
+#     pass
+
+
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     # колонки в админке
@@ -64,3 +61,22 @@ class CategoryAdmin(admin.ModelAdmin):
 
     # заполняется слаг автоматически
     prepopulated_fields = {'slug': ('name',)}
+
+# class PostImageAdmin(admin.TabularInline):
+#     readonly_fields = ('image_preview',)
+#     model = PostImage
+#     extra = 4
+#     verbose_name = "Фотография"
+#     verbose_name_plural = "Фотографии"
+#
+#     def image_preview(self, obj):
+#         # ex. the name of column is "images"
+#         if obj.images:
+#             return mark_safe(
+#                 '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(obj.images.url))
+#         # ex. the name of column is "image"
+#         if obj.image:
+#             return mark_safe(
+#                 '<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(obj.image.url))
+#         else:
+#             return 'Нет картинки'

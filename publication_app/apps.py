@@ -6,3 +6,7 @@ class PublicationAppConfig(AppConfig):
     name = 'publication_app'
     verbose_name = 'Великие спортсмены'
 
+    # применяем сигнал
+    def ready(self):
+        from . import signals
+
