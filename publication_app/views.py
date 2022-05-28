@@ -1,26 +1,17 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views import generic
+from django.template import loader
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout, login
-from django.db.models import Prefetch
 
 # Create your views here.
-from .models import *
 from .forms import *
 from .utils import *
 from .models import *
-
-menu = [{'title': "О сайте", 'url_name': 'about'},
-        {'title': "Добавить статью", 'url_name': 'add_page'},
-        {'title': "Обратная связь", 'url_name': 'contact'},
-        {'title': "Войти", 'url_name': 'login'}
-        ]
 
 
 class PostHome(DataMixin, ListView):
@@ -39,6 +30,20 @@ class PostHome(DataMixin, ListView):
     # создаём функцию которая будет отображать публикации только которые отмечены галочкой is_public
     def get_queryset(self):
         return Post.objects.filter(is_public=True).select_related('category')
+
+
+def tags(request, tag_slug):
+    tag = get_object_or_404(Tag, slug=tag_slug)
+    posts = Post.objects.filter(tags=tag).order_by('-posted')
+
+    template = loader.get_template('tag.html')
+
+    context = {
+        'posts': posts,
+        'tag': tag,
+    }
+
+    return HttpResponse(template.render(context, request))
 
 
 # class ImageView(generic.ListView):

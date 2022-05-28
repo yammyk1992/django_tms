@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Register your models here.
 from django.utils.safestring import mark_safe
 
-from .models import Post, Profile, Category
+from .models import Post, Profile, Category, Tag
 
 
 class ProfileInline(admin.StackedInline):
@@ -25,12 +25,12 @@ class UserAdmin(UserAdminBase):
 class PostAdmin(admin.ModelAdmin):
     # inlines = [PostImageAdmin]
     # колонки в админке
-    list_display = ('id', 'title', 'nationality', 'preview_photo', 'created_at', 'is_public')
+    list_display = ('id', 'title', 'preview_photo', 'created_at', 'is_public')
     # cортировка
     ordering = ('id',)
     readonly_fields = ('created_at',)
     # поиск по заголовку
-    search_fields = ('title', 'nationality')
+    search_fields = ('title',)
     # редактирование полей непосредственно в админке
     list_editable = ('is_public',)
     # фильтр списка статей
@@ -44,6 +44,13 @@ class PostAdmin(admin.ModelAdmin):
             return mark_safe(f"<img src='{object.image.url}' width=50")
 
     preview_photo.short_description = 'Превью'
+
+
+# регистрация модели Tag
+# admin.site.register(Tag)
+@admin.register(Tag)
+class TegAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'tags': ('title',)}
 
 
 # @admin.register(Profile)
