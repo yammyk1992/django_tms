@@ -7,6 +7,7 @@ from django.conf import settings
 from .views import *
 
 urlpatterns = [
+
                   path('', PostHome.as_view(), name='home'),
                   path('about/', about, name='about'),
                   path('addpage/', AddPage.as_view(), name='add_page'),

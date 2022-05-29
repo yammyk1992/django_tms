@@ -28,7 +28,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'preview_photo', 'created_at', 'is_public')
     # cортировка
     ordering = ('id',)
-    readonly_fields = ('created_at',)
+    readonly_fields = ('created_at', 'tags')
     # поиск по заголовку
     search_fields = ('title',)
     # редактирование полей непосредственно в админке
