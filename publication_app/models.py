@@ -16,7 +16,7 @@ class Post(models.Model):
     is_public = models.BooleanField(default=True, verbose_name='Публикация')
     image = models.ImageField(null=True, blank=True, verbose_name='Фото')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категории')
-    tags = models.ManyToManyField('Tag', related_name='tags')
+    tags = models.ManyToManyField('Tag', related_name='tags', null=True, blank=True)
 
     # для вывода в режиме shell терминал заголовков объектов из базы данных
 
