@@ -1,10 +1,8 @@
-from django.urls import path, re_path
+from django.urls import path
 from django.conf.urls.static import static
-from django.contrib import admin
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 
-from publication_app.api.view.publications import PostsView
+from publication_app.api.view.publications import PostsViewSet
 from .views import *
 
 urlpatterns = [
@@ -19,5 +17,6 @@ urlpatterns = [
                   path('post/<slug:post_slug>/', ShowPost.as_view(), name='post'),
                   path('category/<slug:category_slug>/', PostCategory.as_view(), name='category'),
                   path('tag/<slug:tag_slug>', tags, name='tags'),
-                  path('api/posts', PostsView.as_view({'get': 'list', 'post': 'create'}, name='api-posts')),
+                  path('api/posts', PostsViewSet.as_view({'get': 'list', 'post': 'create', 'delete': 'destroy'}, name='api-posts')),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

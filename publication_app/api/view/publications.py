@@ -9,7 +9,7 @@ from ...models import Post
 # CRUD
 # GET, POST, PUT, PATCH, DELETE
 
-class PostsView(GenericViewSet, ListModelMixin, CreateModelMixin, DestroyModelMixin):
+class PostsViewSet(GenericViewSet, ListModelMixin, CreateModelMixin, DestroyModelMixin):
     serializer_class = PostSerializer
     queryset = Post.objects.filter(is_public=True)
     filter_backends = [filters.OrderingFilter]
