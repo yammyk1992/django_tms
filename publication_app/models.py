@@ -6,6 +6,8 @@ from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
 
+from media_app.models import Media
+
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='posts')
@@ -14,8 +16,8 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
     content = models.TextField(blank=True, null=False, verbose_name='Пост')
     is_public = models.BooleanField(default=True, verbose_name='Публикация')
-    image = models.ImageField(null=True, blank=True, verbose_name='Фото')
-    category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категории')
+    file = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Фото')
+    category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категории', null=True, blank=True)
     tags = models.ManyToManyField('Tag', related_name='tags', null=True, blank=True)
 
     # для вывода в режиме shell терминал заголовков объектов из базы данных

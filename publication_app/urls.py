@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from publication_app.api.view.publications import PostsViewSet
+from publication_app.api.view.router import api_router
 from .views import *
 
 urlpatterns = [
@@ -17,6 +17,6 @@ urlpatterns = [
                   path('post/<slug:post_slug>/', ShowPost.as_view(), name='post'),
                   path('category/<slug:category_slug>/', PostCategory.as_view(), name='category'),
                   path('tag/<slug:tag_slug>', tags, name='tags'),
-                  path('api/posts', PostsViewSet.as_view({'get': 'list', 'post': 'create', 'delete': 'destroy'}, name='api-posts')),
+                  path('api/', include(api_router.urls)),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

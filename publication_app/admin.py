@@ -25,7 +25,7 @@ class UserAdmin(UserAdminBase):
 class PostAdmin(admin.ModelAdmin):
     # inlines = [PostImageAdmin]
     # колонки в админке
-    list_display = ('id', 'title', 'preview_photo', 'created_at', 'is_public')
+    list_display = ('id', 'title', 'file', 'preview_photo', 'category', 'created_at', 'is_public')
     # cортировка
     ordering = ('id',)
     readonly_fields = ('created_at', 'tags')
@@ -40,8 +40,8 @@ class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
     def preview_photo(self, object):
-        if object.image:
-            return mark_safe(f"<img src='{object.image.url}' width=50")
+        if object.file:
+            return mark_safe(f"<img src='{object.file.url}' width=50")
 
     preview_photo.short_description = 'Превью'
 

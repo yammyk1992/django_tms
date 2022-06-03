@@ -2,24 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/media_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/api/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/api/serializers/media.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/api/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/api/views/media.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media_app/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media_app/api/views/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/api/view/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/migrations/0014_remove_post_image_post_file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/migrations/0015_alter_post_category.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_django/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/media_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/api/view/publications.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/api/view/publications.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/main_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/post.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,15 +46,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/publication_app" />

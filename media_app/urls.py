@@ -1,7 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 
+from .api.views.router import api_router
 from media_app.api.views.media import MediaViewSet
 
 urlpatterns = [
-    path('api/media/', MediaViewSet.as_view({'get': 'retrieve', 'post': 'create'}, name='api-media')),
+    path('api/', include(api_router.urls)),
 ]
