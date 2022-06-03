@@ -32,18 +32,18 @@ class PostHome(DataMixin, ListView):
         return Post.objects.filter(is_public=True).select_related('category')
 
 
-def tags(request, tag_slug):
-    tag = get_object_or_404(Tag, slug=tag_slug)
-    posts = Post.objects.filter(tags=tag).order_by('-posted')
-
-    template = loader.get_template('tag.html')
-
-    context = {
-        'posts': posts,
-        'tag': tag,
-    }
-
-    return HttpResponse(template.render(context, request))
+# def tags(request, tag_slug):
+#     tag = get_object_or_404(Tag, slug=tag_slug)
+#     posts = Post.objects.filter(tags=tag).order_by('-posted')
+#
+#     template = loader.get_template('tag.html')
+#
+#     context = {
+#         'posts': posts,
+#         'tag': tag,
+#     }
+#
+#     return HttpResponse(template.render(context, request))
 
 
 # class ImageView(generic.ListView):

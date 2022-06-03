@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Register your models here.
 from django.utils.safestring import mark_safe
 
-from .models import Post, Profile, Category, Tag
+from .models import Post, Profile, Category
 
 
 class ProfileInline(admin.StackedInline):
@@ -28,7 +28,7 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'file', 'preview_photo', 'category', 'created_at', 'is_public')
     # cортировка
     ordering = ('id',)
-    readonly_fields = ('created_at', 'tags')
+    readonly_fields = ('created_at',)
     # поиск по заголовку
     search_fields = ('title',)
     # редактирование полей непосредственно в админке
@@ -48,10 +48,10 @@ class PostAdmin(admin.ModelAdmin):
 
 # регистрация модели Tag
 # admin.site.register(Tag)
-@admin.register(Tag)
-class TegAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'tags': ('title',)}
-
+# @admin.register(Tag)
+# class TegAdmin(admin.ModelAdmin):
+#     prepopulated_fields = {'tags': ('title',)}
+#
 
 # @admin.register(Profile)
 # class ProfileAdmin(admin.ModelAdmin):

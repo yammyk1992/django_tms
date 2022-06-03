@@ -7,8 +7,8 @@
 	<p class="last">Дата: {{p.created_at|date:"d-m-Y H:i:s"}}</p>
 </div>
 
-{% if p.file %}
-	<p><img class="img-article-left thumb" src="{{p.file.url}}" style="width: 350px; height: 175px"></p>
+{% if p.image %}
+	<p><img class="img-article-left thumb" src="{{p.image.url}}" style="width: 350px; height: 175px"></p>
 {% endif %}
 
 				<h2>{{p.title}}</h2>

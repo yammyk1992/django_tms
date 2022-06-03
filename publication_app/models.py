@@ -18,7 +18,7 @@ class Post(models.Model):
     is_public = models.BooleanField(default=True, verbose_name='Публикация')
     file = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Фото')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категории', null=True, blank=True)
-    tags = models.ManyToManyField('Tag', related_name='tags', null=True, blank=True)
+    # tags = models.ManyToManyField('Tag', related_name='tags', null=True, blank=True)
 
     # для вывода в режиме shell терминал заголовков объектов из базы данных
 
@@ -70,24 +70,24 @@ class Category(models.Model):
         ordering = ['id']
 
 
-class Tag(models.Model):
-    title = models.CharField(max_length=75, verbose_name='Tag')
-    slug = models.SlugField(null=False, unique=True)
-
-    class Meta:
-        verbose_name = 'Тег'
-        verbose_name_plural = 'Теги'
-
-    def get_absolute_url(self):
-        return reverse('tags', args=[self.slug])
-
-    def __str__(self):
-        return self.title
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.title)
-        return super().save(*args, **kwargs)
+# class Tag(models.Model):
+#     title = models.CharField(max_length=75, verbose_name='Tag')
+#     slug = models.SlugField(null=False, unique=True)
+#
+#     class Meta:
+#         verbose_name = 'Тег'
+#         verbose_name_plural = 'Теги'
+#
+#     def get_absolute_url(self):
+#         return reverse('tags', args=[self.slug])
+#
+#     def __str__(self):
+#         return self.title
+#
+#     def save(self, *args, **kwargs):
+#         if not self.slug:
+#             self.slug = slugify(self.title)
+#         return super().save(*args, **kwargs)
 
     # class PostImage(models.Model):
     #     # id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')
