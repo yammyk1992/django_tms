@@ -9,6 +9,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout, login
 
 # Create your views here.
+from tags_app.models import Tag
 from .forms import *
 from .utils import *
 from .models import *
@@ -32,18 +33,18 @@ class PostHome(DataMixin, ListView):
         return Post.objects.filter(is_public=True).select_related('category')
 
 
-# def tags(request, tag_slug):
-#     tag = get_object_or_404(Tag, slug=tag_slug)
-#     posts = Post.objects.filter(tags=tag).order_by('-posted')
-#
-#     template = loader.get_template('tag.html')
-#
-#     context = {
-#         'posts': posts,
-#         'tag': tag,
-#     }
-#
-#     return HttpResponse(template.render(context, request))
+def tags(request, tag_slug):
+    tag = get_object_or_404(Tag, slug=tag_slug)
+    posts = Post.objects.filter(tags=tag)
+
+    template = loader.get_template('about.html')
+
+    context = {
+        'posts': posts,
+        'tag': tag,
+    }
+
+    return HttpResponse(template.render(context, request))
 
 
 # class ImageView(generic.ListView):

@@ -4,7 +4,7 @@
 <h1>{{ post.title }}</h1>
 
 {% if post.file %}
-<p><img class="img-article-left" src="{{post.file.url}}" style="width: 175px; height: 200px"></p>
+<p><img class="img-article-left" src="{{post.file.file.url}}" style="width: 500px; height: 350px"></p>
 {% endif %}
 
 {{post.content|linebreaks}}

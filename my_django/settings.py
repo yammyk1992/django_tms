@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'media_app',
     'tags_app',
+    'comments_app',
 ]
 
 MIDDLEWARE = [

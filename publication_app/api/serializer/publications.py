@@ -8,7 +8,7 @@ class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
         exclude = ['is_public']
-        read_only_fields = ('id', 'user', 'is_public', 'created_at', 'category')
+        read_only_fields = ('id', 'user', 'is_public', 'created_at')
         extra_kwargs = {
             'file': {
                 'required': True,
