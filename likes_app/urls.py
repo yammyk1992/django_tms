@@ -1,6 +1,6 @@
 from django.urls import include, path
 
-from comments_app.api.views.router import api_router
+from likes_app.api.views.router import api_router
 
 
 urlpatterns = [
