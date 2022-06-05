@@ -2,21 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/comments_app/form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/serializers/likes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/views/likes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/likes_app/views/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/serializers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/serializers/profile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/profile_app/views/profile.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
