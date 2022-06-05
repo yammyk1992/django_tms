@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
 from likes_app.models import Likes, LikesComments
-from likes_app.serializers.likes import LikesSerializer, LikesCommentsSerializer
+from likes_app.api.serializers.likes import LikesSerializer, LikesCommentsSerializer
 
 
 class LikesViewSet(ModelViewSet):

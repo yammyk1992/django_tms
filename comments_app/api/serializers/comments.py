@@ -1,7 +1,8 @@
 from rest_framework import serializers
 
 from likes_app.models import LikesComments
-from profile_app.serializers.profile import ProfileSerializer
+from profile_app.api.serializers.profile import ProfileSerializer
+
 from ...models import Comments
 
 
