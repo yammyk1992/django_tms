@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/likes_app/api/views/likes.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/api/views/likes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/likes_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_app/api/serializers/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/api/serializers/profile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments_app/api/views/comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/api/views/comments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/likes_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
