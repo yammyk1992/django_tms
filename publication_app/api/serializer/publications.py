@@ -28,7 +28,14 @@ class PostSerializer(serializers.ModelSerializer):
 
     media = MediaSerializer(source='file', allow_null=False, read_only=True)
 
-    likes = serializers.SerializerMethodField()
+    likes_count = serializers.SerializerMethodField()
 
-    def get_likes(self, instance) -> int:
+    comments_count = serializers.SerializerMethodField()
+
+    def get_likes_count(self, instance) -> int:
         return instance.likes_count()
+
+    def get_comments_count(self, instance) -> int:
+        return instance.comments_count()
+
+

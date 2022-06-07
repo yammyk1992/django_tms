@@ -20,5 +20,8 @@ class PostsViewSet(ModelViewSet):
 
     serializer_class = PostSerializer
     queryset = Post.objects.filter(is_public=True)
-    filter_backends = [filters.OrderingFilter]
+
+    # включаем поиск и сортировку в API
+    filter_backends = [filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['created_at', 'id']
+    search_fields = ['=id', 'title', 'content', 'category_id', '^user__username']

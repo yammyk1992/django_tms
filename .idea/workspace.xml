@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
+      <change afterPath="$PROJECT_DIR$/friends_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friends_app/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friends_app/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friends_app/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friends_app/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friends_app/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friends_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_app/api/views/comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/api/views/comments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/likes_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/api/view/publications.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/api/view/publications.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
