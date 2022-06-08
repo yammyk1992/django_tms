@@ -2,29 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/friend_app/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friend_app/api/views/friend.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friend_app/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friend_app/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friend_app/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friend_app/serializers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friend_app/serializers/friend.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/friend_app/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/profile_app/migrations/0003_profile_friends.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friend_app/api/serializers/friend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friend_app/api/views/router.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/api/views/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friends_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/api/views/friend.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/api/views/friend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/serializers/friend.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/api/serializers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_django/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,21 +47,22 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/mac/PycharmProjects/django/friend_app/serializers",
+    "last_opened_file_path": "/Users/mac/PycharmProjects/django/friend_app/api/views",
     "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/friend_app/api/views" />
       <recent name="$PROJECT_DIR$/friend_app/serializers" />
       <recent name="$PROJECT_DIR$/tags_app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/friend_app/api" />
       <recent name="$PROJECT_DIR$/profile_app" />
       <recent name="$PROJECT_DIR$/profile_app/api" />
       <recent name="$PROJECT_DIR$/likes_app/api" />
       <recent name="$PROJECT_DIR$/publication_app" />
-      <recent name="$PROJECT_DIR$/publication_app/static/publication_app" />
     </key>
   </component>
   <component name="RunManager">

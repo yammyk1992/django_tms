@@ -1,7 +1,7 @@
-from django.template.defaulttags import url
+from django.urls import include, path
 
-from friend_app import views
+from friend_app.api.views.router import api_router
 
 urlpatterns = [
-    url(r'^connect/(?P<operation>.+)/(?P<pk>\d+)/$', views.change_friends, name='change_friends')
+    path('api/', include(api_router.urls)),
 ]
