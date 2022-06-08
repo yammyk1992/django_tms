@@ -4,21 +4,10 @@ from django.contrib.auth.models import User
 # Register your models here.
 from django.utils.safestring import mark_safe
 
-from .models import Post, Profile, Category
+from .models import Post, Category
 
 
-class ProfileInline(admin.StackedInline):
-    model = Profile
-
-
-admin.site.unregister(User)
-
-
-@admin.register(User)
-class UserAdmin(UserAdminBase):
-    inlines = (
-        ProfileInline,
-    )
+# admin.site.unregister(User)
 
 
 @admin.register(Post)
@@ -41,7 +30,7 @@ class PostAdmin(admin.ModelAdmin):
 
     def preview_photo(self, object):
         if object.file:
-            return mark_safe(f"<img src='{object.file.url}' width=50")
+            return mark_safe(f"<img src='{object.file.file.url}' width=50")
 
     preview_photo.short_description = 'Превью'
 

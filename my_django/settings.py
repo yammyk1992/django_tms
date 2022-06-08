@@ -10,6 +10,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.conf.global_settings import AUTH_USER_MODEL
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -41,7 +43,7 @@ INSTALLED_APPS = [
     'comments_app',
     'likes_app',
     'profile_app',
-    'friends_app',
+    'friend_app',
 ]
 
 MIDDLEWARE = [
