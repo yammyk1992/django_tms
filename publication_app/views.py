@@ -1,3 +1,5 @@
+import os
+
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template import loader
@@ -7,6 +9,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout, login
+from django.core.mail import send_mail
 
 # Create your views here.
 from tags_app.models import Tag
@@ -90,9 +93,8 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
 #             form.save()
 #             return redirect('home')
 #
-#     else:
-#         form = AddPostForm()
-#     return render(request, 'publication_app/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи '})
+# else: form = AddPostForm() return render(request, 'publication_app/addpage.html', {'form': form, 'menu': menu,
+# 'title': 'Добавление статьи '})
 
 
 def contact(request):
@@ -176,8 +178,14 @@ class RegisterUser(DataMixin, CreateView):
     # при успешной регистрации будем сразу авторизовывать
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user)
-        return redirect('home')
+        send_mail(
+            'Спасибо за регистрацию',
+            'Мы будем присылать вам много спама, но не долго!!!',
+            'yammyk1992@gmail.com',
+            [user.email],
+            fail_silently=False,
+        )
+        return super().form_valid(form)
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)

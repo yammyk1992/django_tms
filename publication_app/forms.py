@@ -58,4 +58,3 @@ class RegisterUserForm(UserCreationForm):
             user.save()
 
         return user
-

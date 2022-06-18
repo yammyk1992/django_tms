@@ -5,7 +5,6 @@ db.sqlite3/
 db.sqlite3
 media
 workspace.xml
-db.sqlite3
 
 publication_app/__pycache__/
 
