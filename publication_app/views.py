@@ -1,6 +1,6 @@
 import os
 
-from django.http import HttpResponse, HttpResponseNotFound, Http404
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template import loader
 from django.views.generic import ListView, DetailView, CreateView
@@ -8,7 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import logout, login
+from django.contrib.auth import logout
 from django.core.mail import send_mail
 
 # Create your views here.
@@ -181,7 +181,7 @@ class RegisterUser(DataMixin, CreateView):
         send_mail(
             'Спасибо за регистрацию',
             'Мы будем присылать вам много спама, но не долго!!!',
-            'yammyk1992@gmail.com',
+            str(os.getenv('EMAIL_HOST_USER')),
             [user.email],
             fail_silently=False,
         )

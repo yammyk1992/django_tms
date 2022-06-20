@@ -3,7 +3,7 @@ from .models import Category
 
 menu = [{'title': "О сайте", 'url_name': 'about'},
         {'title': "Добавить статью", 'url_name': 'add_page'},
-        {'title': "Обратная связь", 'url_name': 'contact'},
+        {'title': "Профиль", 'url_name': 'profile'},
         ]
 
 
@@ -17,7 +17,6 @@ class DataMixin:
         user_menu = menu.copy()
         if not self.request.user.is_authenticated:
             user_menu.pop(1)
-
         context['menu'] = user_menu
         context['cats'] = cats
         if 'category_selected' not in context:

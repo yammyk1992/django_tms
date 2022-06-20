@@ -9,3 +9,5 @@ workspace.xml
 publication_app/__pycache__/
 
 my_django/__pycache__/
+.env/
+my_django/.env/
