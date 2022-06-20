@@ -3,8 +3,9 @@
 <ul class="list-articles">
 	{% for p in posts %}
 			<li><div class="article-panel">
-	<p class="first">Категория: {{p.category}}</p>
+	<p class="first">Категория: {{p.category}}, Профиль: {{p.user}}</p>
 	<p class="last">Дата: {{p.created_at|date:"d-m-Y H:i:s"}}</p>
+
 </div>
 
 {% if p.file %}

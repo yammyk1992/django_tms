@@ -8,5 +8,5 @@ class PublicationAppConfig(AppConfig):
 
     # применяем сигнал
     def ready(self):
-        from . import signals
+        pass
 

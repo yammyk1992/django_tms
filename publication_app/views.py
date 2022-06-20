@@ -181,7 +181,7 @@ class RegisterUser(DataMixin, CreateView):
         send_mail(
             'Спасибо за регистрацию',
             'Мы будем присылать вам много спама, но не долго!!!',
-            'yammyk1992@gmail.com',
+            str(os.getenv('EMAIL_HOST_USER')),
             [user.email],
             fail_silently=False,
         )

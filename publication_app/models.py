@@ -35,22 +35,6 @@ class Post(models.Model):
         return reverse('post', kwargs={'post_slug': self.slug})
 
 
-class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile', verbose_name='Пользователь')
-    avatar = models.ImageField(blank=True, null=True)
-    phone = models.CharField(validators=[RegexValidator(regex=r'^\+?1?\d{9, 15}$')], max_length=17, blank=True,
-                             null=True, verbose_name='Номер телефона')
-    about = models.TextField(max_length=4096, verbose_name='О себе', null=True, blank=True)
-    github_link = models.URLField(blank=True, null=True, verbose_name='Ссылка на GitHub')
-
-    # меняем язык отображения в админке
-    class Meta:
-        verbose_name = 'Профиль'
-        # для множественного числа
-        verbose_name_plural = 'Профили'
-        ordering = ['id']
-
-
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name='Категория')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')

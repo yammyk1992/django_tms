@@ -44,7 +44,7 @@ class PostAdmin(admin.ModelAdmin):
 
 # @admin.register(Profile)
 # class ProfileAdmin(admin.ModelAdmin):
-#     pass
+#     list_display = ('user', 'avatar', 'phone', 'about', 'github_link')
 
 
 @admin.register(Category)
