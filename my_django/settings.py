@@ -176,8 +176,8 @@ EMAIL_USE_TLS = True
 
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yammyk1992@gmail.com'
-EMAIL_HOST_PASSWORD = 'kctjhwzfmnjwxykf'
+EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))
+EMAIL_HOST_PASSWORD = str(os.getenv('EMAIL_HOST_PASSWORD'))
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
@@ -190,7 +190,3 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
-# Подключаем .env
-load_dotenv()
-env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
