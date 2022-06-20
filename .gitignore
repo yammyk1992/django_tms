@@ -147,3 +147,4 @@ cython_debug/
 venv/
 # media files
 media/
+db.sqlite3
