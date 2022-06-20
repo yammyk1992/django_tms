@@ -6,5 +6,11 @@ class PublicationAppConfig(AppConfig):
     name = 'publication_app'
     verbose_name = 'Проект'
 
+<<<<<<< HEAD
 
+=======
+    # применяем сигнал
+    def ready(self):
+        pass
+>>>>>>> master/master
 
