@@ -1,0 +1,21 @@
+
+
+{% extends 'publication_app/base.html' %}
+
+{% block content %}
+<h1>Редактирование данных профиля {{ user.username }}</h1>
+<p>Ваши данные:</p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    {% if request.user.profile.photo %}
+        <p> Ваш аватар:</p>
+        <img src="{{ request.user.profile.photo.url }}" alt="" width="250px" height="250px">
+    {% else %}
+        <p> Ваш аватар по умолчанию:</p>
+        <img src="/static/image/default.jpeg" alt="" width="250px" height="250px">
+    {% endif %}
+    <p><input type="submit" value="Cохранить настройки"></p>
+</form>
+{% endblock %}

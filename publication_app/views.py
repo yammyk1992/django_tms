@@ -1,8 +1,11 @@
 import os
 
+import slug as slug
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template import loader
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
@@ -50,14 +53,6 @@ def tags(request, tag_slug):
     return HttpResponse(template.render(context, request))
 
 
-# class ImageView(generic.ListView):
-#     template_name = 'publication_app/main_page.html'
-#     context_object_name = 'case_list'
-#
-#     def get_queryset(self):
-#         return PostImage.objects.all()
-
-
 # def main_page(request):
 #     posts = Post.objects.all()
 #     context = {'posts': posts, 'menu': menu, 'title': 'Главная страница', 'cat_selected': 0, }
@@ -66,23 +61,76 @@ def tags(request, tag_slug):
 #     return render(request, 'publication_app/main_page.html', context=context)
 
 # декоратор для того что-бы страницу about смотрели только зарегистрированные пользователи
-# @login_required
+@login_required
 def about(request):
     return render(request, 'publication_app/about.html', {'menu': menu, 'title': 'О сайте'})
 
 
 # Создание класса представлений вместо функций
-class AddPage(LoginRequiredMixin, DataMixin, CreateView):
-    form_class = AddPostForm
-    template_name = 'publication_app/addpage.html'
-    success_url = reverse_lazy('home')
-    login_url = reverse_lazy('home')
-    raise_exception = True
+# class AddPage(LoginRequiredMixin, DataMixin, CreateView):
+#     form_class = AddPostForm
+#     template_name = 'publication_app/addpage.html'
+#     success_url = reverse_lazy('home')
+#     login_url = reverse_lazy('home')
+#     raise_exception = True
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         c_def = self.get_user_context(title='Добавление статьи')
+#         return dict(list(context.items()) + list(c_def.items()))
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Добавление статьи')
-        return dict(list(context.items()) + list(c_def.items()))
+class AddPage(View):
+    @staticmethod
+    def get(request):
+        form = ImagePostForm()
+
+        context = {
+            'form': form,
+        }
+
+        return render(request, 'publication_app/addpage.html', context)
+
+    @staticmethod
+    def post(request):
+
+        form = ImagePostForm(request.POST, request.FILES)
+        image = request.FILES.getlist('image')
+        tag = request.POST.getlist('tag')
+
+        if len(image) > 4:
+            context = {
+                "title": "Добавление нового поста",
+                "form": form,
+                "error": "Максимальное количество фотографии - 4"
+            }
+            return render(request, "publication_app/addpage.html", context)
+
+        if form.is_valid():
+            post = Post.objects.create(
+                user=request.user,
+                title=form.cleaned_data['title'],
+                content=form.cleaned_data['content'],
+                is_public=form.cleaned_data['is_public'],
+                slug=form.cleaned_data['slug'],
+            )
+
+            for images in image:
+                ImagePost.objects.create(
+                    post=post,
+                    image=images
+                )
+
+            for tag in tag:
+                post.tag.add(tag)
+
+            return redirect('home')
+
+        else:
+            context = {
+                'title': 'Добавление нового поста',
+                'form': form,
+            }
+            return render(request, 'publication_app/addpage.html', context)
 
 
 # def addpage(request):

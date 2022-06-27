@@ -1,10 +1,9 @@
+import self as self
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import ModelForm, fields
 
 from .models import *
-from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.contrib.auth.models import User
 
 
@@ -18,14 +17,14 @@ from django.contrib.auth.models import User
 #                                       empty_label='Категория не выбрана')
 
 # создание моделей связанных с БД
-class AddPostForm(forms.ModelForm):
+class AddPageForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['category'].empty_label = 'Категория не выбрана'
 
     class Meta:
         model = Post
-        fields = ['title', 'slug', 'content', 'is_public', 'file', 'category']
+        fields = ['title', 'content', 'is_public', 'category', 'tag', 'slug']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
             'content': forms.Textarea(attrs={'cols': 68, 'rows': 10}),
@@ -39,6 +38,18 @@ class AddPostForm(forms.ModelForm):
             raise ValidationError('Длина превышает 200 символов')
 
         return title
+
+
+class ImagePostForm(AddPageForm):
+    """Класс формы добавление изображение к посту"""
+    image = forms.ImageField(
+        label='Выберите фотографии(Не более 4)',
+        required=False,
+        widget=forms.ClearableFileInput(attrs={'multiple': True})
+    )
+
+    class Meta(AddPageForm.Meta):
+        fields = AddPageForm.Meta.fields + ['image', ]
 
 
 class RegisterUserForm(UserCreationForm):
@@ -57,4 +68,4 @@ class RegisterUserForm(UserCreationForm):
         if commit:
             user.save()
 
-        return user
+        return

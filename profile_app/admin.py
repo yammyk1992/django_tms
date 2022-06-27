@@ -7,7 +7,7 @@ from profile_app.models import Profile
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'avatar', 'phone', 'about', 'github_link')
+    list_display = ('user', 'photo', 'about', 'github_link')
 
     def preview_photo(self, object):
         if object.file:
