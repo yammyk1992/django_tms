@@ -1,3 +1,5 @@
+from unicodedata import category
+
 import self as self
 from django import forms
 from django.core.exceptions import ValidationError
@@ -18,9 +20,24 @@ from django.contrib.auth.models import User
 
 # создание моделей связанных с БД
 class AddPageForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['category'].empty_label = 'Категория не выбрана'
+    title = forms.CharField(label='Введите название поста*')
+    content = forms.CharField(
+        label='Введите тест к посту*',
+        widget=forms.Textarea()
+    )
+    is_public = forms.BooleanField(
+        label='Делаем видимой?',
+        initial=True,
+        required=False
+    )
+
+    tag = forms.ModelMultipleChoiceField(
+        label='Тэги',
+        required=False,
+        queryset=Tag.objects.all(),
+    )
+    category = forms.ModelChoiceField(label='Выберите категорию поста*', required=False, queryset=Category.objects.all(),)
+    slug = forms.SlugField(label='Введите уникальный слаг*')
 
     class Meta:
         model = Post

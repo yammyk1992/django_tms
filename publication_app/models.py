@@ -38,11 +38,8 @@ class Post(models.Model):
 
 class ImagePost(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='image_posts')
-    image = models.ImageField(upload_to='media/', null=True, blank=True, verbose_name='Фото')
+    image = models.ImageField(null=True, blank=True, verbose_name='Фото')
     uploaded_at = models.DateTimeField(auto_now_add=True)
-
-    # def get_absolute_url(self):
-    #     return f'/image{self.id}'
 
     class Meta:
         verbose_name = 'Фотография поста'
@@ -51,13 +48,9 @@ class ImagePost(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name='Категория')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def __str__(self):
         return self.name
-
-    def get_absolute_url(self):
-        return reverse('category', kwargs={'category_slug': self.slug})
 
     # меняем язык отображения в админке
     class Meta:

@@ -3,14 +3,19 @@
 <ul class="list-articles">
 	{% for p in posts %}
 			<li><div class="article-panel">
-	<p class="first">Категория: {{p.category}}, Профиль: {{p.user}}</p>
+	<p class="first">Категория: {{p.category}} Профиль: {{p.user}}</p>
 	<p class="last">Дата: {{p.created_at|date:"d-m-Y H:i:s"}}</p>
 
 </div>
 
-{% if p.file %}
-	<p><img class="img-article-left thumb" src="{{p.file.file.url}}" style="width: 200px; height: 200px"></p>
+{% for img in p.image_posts.all %}
+{% if img.image %}
+<img src="{{ img.image.url }}">
+{% else %}
+<p> Нет фото
 {% endif %}
+{% endfor %}
+
 
 				<h2>{{p.title}}</h2>
 	{% autoescape on %}

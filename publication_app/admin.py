@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
 
-from .models import Post, Category, ImagePost
+from .models import *
 
 
 # admin.site.unregister(User)
@@ -27,23 +27,25 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('name',)
     list_display_links = ('id', 'name')
 
-    # заполняется слаг автоматически
-    prepopulated_fields = {'slug': ('name',)}
-
 
 class PostImageAdmin(admin.StackedInline):
     model = ImagePost
-    readonly_fields = ('image_preview',)
+    # readonly_fields = ('image_preview',)
     verbose_name = "Фотография к посту"
     list_display = ('id', 'image_preview', 'post_id')
     verbose_name_plural = "Фотографии к посту"
+    ordering = ('-post_id',)
 
-    def image_preview(self, object):
-        # ex. the name of column is "images"
-        if object.file:
-            return mark_safe('<img src="{0}" width="150" height="150" style="object-fit:contain" />'.format(object.image.image.url))
-        else:
-            return 'Нет картинки'
+    def image_preview(self, obj):
+        if obj.image:
+            return mark_safe(
+                f'<a href="{obj.image.url}">'
+                f'<img src="{obj.image.url}" width ="150" height="150" />'
+                f'</a>'
+            )
+
+    image_preview.short_description = 'Фото к посту'
+    image_preview.allow_tags = True
 
 
 @admin.register(Post)
@@ -51,23 +53,13 @@ class PostAdmin(admin.ModelAdmin):
     inlines = (
         PostImageAdmin,
     )
-    # колонки в админке
-    list_display = ('id', 'title', 'category', 'file', 'created_at', 'is_public')
-    # cортировка
-    ordering = ('id',)
+    list_display = ('id', 'created_at', 'title', 'is_public')
+    ordering = ('-created_at', '-id')
     readonly_fields = ('created_at',)
-    # поиск по заголовку
-    search_fields = ('title',)
-    # редактирование полей непосредственно в админке
-    list_editable = ('is_public', 'file')
-    # фильтр списка статей
-    list_filter = ('is_public', 'created_at')
+    # изменять не заходя в пост
+    list_editable = ('is_public',)
+    # фильтровать по чем
+    list_filter = ('is_public',)
 
     # заполняется слаг автоматически
     prepopulated_fields = {'slug': ('title',)}
-
-    def preview_photo(self, object):
-        if object.file:
-            return mark_safe(f"<img src='{object.file.file.url}' width=50")
-
-    preview_photo.short_description = 'Превью картинки'

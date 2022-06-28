@@ -92,7 +92,6 @@ class AddPage(View):
 
     @staticmethod
     def post(request):
-
         form = ImagePostForm(request.POST, request.FILES)
         image = request.FILES.getlist('image')
         tag = request.POST.getlist('tag')
@@ -112,6 +111,8 @@ class AddPage(View):
                 content=form.cleaned_data['content'],
                 is_public=form.cleaned_data['is_public'],
                 slug=form.cleaned_data['slug'],
+                category=form.cleaned_data['category'],
+
             )
 
             for images in image:

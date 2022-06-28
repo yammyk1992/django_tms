@@ -148,6 +148,5 @@ media/
 db.sqlite3
 my_django/__pycache__/
 my_django/.env/
-profile_app/__pycache__/
-profile_app/__pycache__/admin.cpython-310.pyc
+.profile_app/__pycache__/
 

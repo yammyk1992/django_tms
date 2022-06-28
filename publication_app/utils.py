@@ -18,7 +18,6 @@ class DataMixin:
             user_menu.pop(1)
         context['menu'] = user_menu
         context['cats'] = cats
-        context['current_user'] = current_user
         if 'category_selected' not in context:
             context['category_selected'] = 0
         return context
