@@ -1,21 +1,17 @@
 import os
-
-import slug as slug
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, request
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template import loader
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
-from django.contrib.auth import logout
+from django.contrib.auth import logout, login
 from django.core.mail import send_mail
 
 # Create your views here.
-from tags_app.models import Tag
 from .forms import *
 from .utils import *
 from .models import *
@@ -52,13 +48,6 @@ def tags(request, tag_slug):
 
     return HttpResponse(template.render(context, request))
 
-
-# def main_page(request):
-#     posts = Post.objects.all()
-#     context = {'posts': posts, 'menu': menu, 'title': 'Главная страница', 'cat_selected': 0, }
-#
-#     # наполнение шаблона данными - render
-#     return render(request, 'publication_app/main_page.html', context=context)
 
 # декоратор для того что-бы страницу about смотрели только зарегистрированные пользователи
 @login_required
@@ -134,24 +123,8 @@ class AddPage(View):
             return render(request, 'publication_app/addpage.html', context)
 
 
-# def addpage(request):
-#     if request.method == 'POST':
-#         form = AddPostForm(request.POST, request.FILES)
-#         if form.is_valid():
-#             # print(form.cleaned_data)
-#             form.save()
-#             return redirect('home')
-#
-# else: form = AddPostForm() return render(request, 'publication_app/addpage.html', {'form': form, 'menu': menu,
-# 'title': 'Добавление статьи '})
-
-
 def contact(request):
     return HttpResponse('Обратная связь')
-
-
-# def login(request):
-#     return HttpResponse('Авторизация')
 
 
 class ShowPost(DataMixin, DetailView):
@@ -189,18 +162,6 @@ def pageNotFound(request, exception):
     return HttpResponseNotFound("<h1> Страница не найдена </h1>")
 
 
-# def show_category(request, category_id):
-#     posts = Post.objects.filter(category_id=category_id)
-#
-#     if len(posts) == 0:
-#         raise Http404()
-#
-#     context = {'posts': posts, 'menu': menu, 'title': 'Отображение по категориям', 'cat_selected': category_id, }
-#
-#     # наполнение шаблона данными - render
-#     return render(request, 'publication_app/main_page.html', context=context)
-
-
 class PostCategory(DataMixin, ListView):
     model = Post
     template_name = 'publication_app/main_page.html'
@@ -219,27 +180,66 @@ class PostCategory(DataMixin, ListView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-class RegisterUser(DataMixin, CreateView):
-    form_class = RegisterUserForm
-    template_name = 'publication_app/register.html'
-    success_url = reverse_lazy('login')
+# class RegisterUser(DataMixin, CreateView):
+#     form_class = RegisterUserForm
+#     template_name = 'publication_app/register.html'
+#     success_url = reverse_lazy('login')
+#
+#     # при успешной регистрации будем сразу авторизовывать
+#     def form_valid(self, form):
+#         user = form.save()
+#         send_mail(
+#             'Спасибо за регистрацию',
+#             'Мы будем присылать вам много спама, но не долго!!!',
+#             from_email=str(os.getenv('EMAIL_HOST_USER')),
+#             recipient_list=[user.email],
+#             fail_silently=False)
+#
+#         return super().form_valid(form)
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         c_def = self.get_user_context(title='Регистрация')
+#         return dict(list(context.items()) + list(c_def.items()))
 
-    # при успешной регистрации будем сразу авторизовывать
-    def form_valid(self, form):
-        user = form.save()
-        send_mail(
-            'Спасибо за регистрацию',
-            'Мы будем присылать вам много спама, но не долго!!!',
-            str(os.getenv('EMAIL_HOST_USER')),
-            [user.email],
-            fail_silently=False,
-        )
-        return super().form_valid(form)
+class Register(View):
+    """Класс регистрации пользователя"""
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title='Регистрация')
-        return dict(list(context.items()) + list(c_def.items()))
+    @staticmethod
+    def get(request):
+
+        if request.user.is_authenticated:
+            return redirect('posts')
+
+        form = RegisterUserForm()
+
+        context = {
+            'title': 'Регистрация ',
+            'form': form
+        }
+        return render(request, 'publication_app/register.html', context)
+
+    @staticmethod
+    def post(request):
+        form = RegisterUserForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            user = form.save()
+            send_mail(
+                'Спасибо за регистрацию',
+                'Мы будем присылать вам много спама, но не долго!!!',
+                str(os.getenv('EMAIL_HOST_USER')),
+                [user.email],
+                fail_silently=False)
+            login(request, user)
+            return redirect('/')
+        context = {
+            'title': 'Registration',
+            'form': form,
+            }
+
+        return render(request, 'publication_app/register.html', context)
 
 
 class LoginUser(DataMixin, LoginView):

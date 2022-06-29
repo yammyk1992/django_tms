@@ -1,6 +1,3 @@
-from unicodedata import category
-
-import self as self
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
@@ -36,7 +33,8 @@ class AddPageForm(forms.ModelForm):
         required=False,
         queryset=Tag.objects.all(),
     )
-    category = forms.ModelChoiceField(label='Выберите категорию поста*', required=False, queryset=Category.objects.all(),)
+    category = forms.ModelChoiceField(label='Выберите категорию поста*', required=False,
+                                      queryset=Category.objects.all(), )
     slug = forms.SlugField(label='Введите уникальный слаг*')
 
     class Meta:
@@ -69,8 +67,7 @@ class ImagePostForm(AddPageForm):
         fields = AddPageForm.Meta.fields + ['image', ]
 
 
-class RegisterUserForm(UserCreationForm):
-    username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
+class RegisterUserForm(forms.ModelForm):
     email = forms.EmailField(label='Электронная почта', widget=forms.EmailInput(attrs={'class': 'form-input'}))
     password1 = forms.CharField(label='Пароль', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
     password2 = forms.CharField(label='Повтор пароля', widget=forms.PasswordInput(attrs={'class': 'form-input'}))
@@ -80,9 +77,10 @@ class RegisterUserForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
     def save(self, commit=True):
-        user = super().save(commit=False)
-        user.set_password(self.cleaned_data["password1"])
+        """Сохраняем нового пользователя и хешируем пароль"""
+        user = super(RegisterUserForm, self).save(commit=False)
+        user.set_password(self.cleaned_data['password1'])
+
         if commit:
             user.save()
-
-        return
+        return user

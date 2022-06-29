@@ -4,8 +4,5 @@ from publication_app.views import *
 
 @app.task
 def send_my_mail(user_email):
-<<<<<<< HEAD
     send_mail(user_email)
-=======
-    send_mail(user_email)
->>>>>>> master/master
+
