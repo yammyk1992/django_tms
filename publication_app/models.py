@@ -17,7 +17,6 @@ class Post(models.Model):
     is_public = models.BooleanField(default=True, verbose_name='Публикация')
     file = models.ForeignKey(Media, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Фото')
     category = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категории', null=True)
-
     tag = models.ManyToManyField(Tag, blank=True, related_name='tag_post')
 
     # для вывода в режиме shell терминал заголовков объектов из базы данных
@@ -30,7 +29,7 @@ class Post(models.Model):
         verbose_name = 'Пост'
         # для множественного числа
         verbose_name_plural = 'Посты'
-        ordering = ['id']
+        ordering = ['-id']
 
     def get_absolute_url(self):
         return reverse('post', kwargs={'pk': self.pk})
@@ -51,6 +50,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_id': self.pk})
 
     # меняем язык отображения в админке
     class Meta:

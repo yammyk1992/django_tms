@@ -2,10 +2,18 @@
 {% block content %}
 
 <h1>{{ post.title }}</h1>
-
+<div class="card-header">
+            Пост создал:<b>{{ post.user.username }}</b>
+</div>
+<p align="left">Теги:
+{% for tag in post.tag.all %}
+{{ tag.tag }}
+{% endfor%}
+</p>
 {% if post.file %}
 <p><img class="img-article-left" src="{{post.file.file.url}}" style="width: 500px; height: 350px"></p>
 {% endif %}
-
+<p align="left">Пост:
 {{post.content|linebreaks}}
+</p>
 {% endblock %}

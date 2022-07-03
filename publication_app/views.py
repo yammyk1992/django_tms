@@ -32,21 +32,21 @@ class PostHome(DataMixin, ListView):
 
     # создаём функцию которая будет отображать публикации только которые отмечены галочкой is_public
     def get_queryset(self):
-        return Post.objects.filter(is_public=True).select_related('category')
+        return Post.objects.filter(is_public=True)
 
 
-def tags(request, tag_slug):
-    tag = get_object_or_404(Tag, slug=tag_slug)
-    posts = Post.objects.filter(tags=tag)
-
-    template = loader.get_template('about.html')
-
-    context = {
-        'posts': posts,
-        'tag': tag,
-    }
-
-    return HttpResponse(template.render(context, request))
+# def tags(request, tag_slug):
+#     tag = get_object_or_404(Tag, slug=tag_slug)
+#     posts = Post.objects.filter(tags=tag)
+#
+#     template = loader.get_template('about.html')
+#
+#     context = {
+#         'posts': posts,
+#         'tag': tag,
+#     }
+#
+#     return HttpResponse(template.render(context, request))
 
 
 # декоратор для того что-бы страницу about смотрели только зарегистрированные пользователи
@@ -130,7 +130,7 @@ def contact(request):
 class ShowPost(DataMixin, DetailView):
     model = Post
     template_name = 'publication_app/post.html'
-    slug_url_kwarg = 'post_slug'
+    pk_url_kwarg = 'pk'
     context_object_name = 'post'
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -167,10 +167,7 @@ class PostCategory(DataMixin, ListView):
     template_name = 'publication_app/main_page.html'
     context_object_name = 'posts'
     allow_empty = False
-
-    # создаём функцию которая будет отображать публикации только которые отмечены галочкой is_public
-    def get_queryset(self):
-        return Post.objects.filter(category__slug=self.kwargs['category_slug'], is_public=True)
+    pk_url_kwarg = 'pk'
 
     # создаём динамический контекст чтобы передать меню
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -178,6 +175,10 @@ class PostCategory(DataMixin, ListView):
         c_def = self.get_user_context(title='Категория - ' + str(context['posts'][0].category),
                                       cat_selected=context['posts'][0].category_id)
         return dict(list(context.items()) + list(c_def.items()))
+
+    # создаём функцию которая будет отображать публикации только которые отмечены галочкой is_public
+    def get_queryset(self):
+        return Post.objects.filter(category__id=self.kwargs['category_id'], is_public=True)
 
 
 # class RegisterUser(DataMixin, CreateView):
@@ -237,7 +238,7 @@ class Register(View):
         context = {
             'title': 'Registration',
             'form': form,
-            }
+        }
 
         return render(request, 'publication_app/register.html', context)
 

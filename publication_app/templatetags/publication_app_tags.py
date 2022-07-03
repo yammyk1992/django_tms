@@ -4,7 +4,7 @@ from publication_app.models import *
 register = template.Library()
 
 
-@register.simple_tag(name='getcats')
+@register.simple_tag()
 def get_categories(filter=None):
     if not filter:
         return Category.objects.all()
@@ -19,4 +19,7 @@ def show_categories(sort=None, cat_selected=0):
     else:
         cats = Category.objects.order_by(sort)
 
-    return {'cats': cats}
+    return {'cats': cats, 'cat_selected': cat_selected}
+
+
+

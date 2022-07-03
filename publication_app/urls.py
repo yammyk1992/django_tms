@@ -17,8 +17,8 @@ urlpatterns = [
                   path('logout/', logout_user, name='logout'),
                   path('register/', Register.as_view(), name='register'),
                   path('post/<int:pk>', login_required(ShowPost.as_view()), name='post'),
-                  path('category/<slug:category_slug>/', PostCategory.as_view(), name='category'),
-                  path('tag/<slug:tag_slug>', tags, name='tags'),
+                  path('category/<int:category_id>/', PostCategory.as_view(), name='category'),
+                  # path('tag/<slug:tag_slug>', tags, name='tags'),
                   path('user/<int:pk>', login_required(ProfileEdit.as_view()), name='profile_account'),
                   path('api/', include(api_router.urls)),
 

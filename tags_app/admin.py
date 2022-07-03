@@ -1,3 +1,9 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Tag
+
+
+@admin.register(Tag)
+class Tag(admin.ModelAdmin):
+    list_display = ('id', 'tag')
+    ordering = ('-id',)
