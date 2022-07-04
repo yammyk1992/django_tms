@@ -2,25 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/publication_app/migrations/0023_alter_post_options.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/tag.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tags_app/migrations/0004_alter_tag_options.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tags_app/templatetags/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tags_app/templatetags/tags_app_tags.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile_app/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/static/publication_app/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/static/publication_app/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/templatetags/publication_app_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templatetags/publication_app_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/templates/publication_app/tag.html" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/templates/publication_app/tag.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publication_app/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tags_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/tags_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tags_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/tags_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags_app/templatetags/tags_app_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/tags_app/templatetags/tags_app_tags.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tags_app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tags_app/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tags_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/tags_app/views.py" afterDir="false" />
     </list>

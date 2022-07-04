@@ -7,4 +7,4 @@ class ProfileAppConfig(AppConfig):
 
     # применяем сигнал
     def ready(self):
-        pass
+        import profile_app.signals

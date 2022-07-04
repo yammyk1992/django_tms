@@ -19,7 +19,7 @@ urlpatterns = [
                   path('post/<int:pk>', login_required(ShowPost.as_view()), name='post'),
                   path('category/<int:category_id>/', PostCategory.as_view(), name='category'),
                   # path('tag/<slug:tag_slug>', tags, name='tags'),
-                  path('user/<int:pk>', login_required(ProfileEdit.as_view()), name='profile_account'),
+                  # path('profile/<int:pk>', login_required(ProfileEdit.as_view()), name='profile_account'),
                   path('api/', include(api_router.urls)),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

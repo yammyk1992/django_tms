@@ -6,5 +6,5 @@ from .views import TagsView
 
 urlpatterns = [
     path('api/', include(api_router.urls)),
-    path('tag/<str:tag', login_required(TagsView.as_view()), name='tags'),
+    path('tag/<str:tag>', login_required(TagsView.as_view()), name='tags_post'),
 ]

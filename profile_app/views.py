@@ -1,6 +1,3 @@
-# Create your views here.
-# def show_profile(request):
-#     return HttpResponse('Профиль')
 from django.shortcuts import render, redirect
 from django.views import View
 
@@ -31,12 +28,10 @@ class ProfileEdit(View):
 
     @staticmethod
     def post(request):
-
         user_form = UserEditForm(instance=request.user, data=request.POST)
         profile_form = ProfileEditForm(instance=request.user.profile, data=request.POST, files=request.FILES)
 
-        if profile_form.is_valid():
+        if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
             return redirect('home')
-

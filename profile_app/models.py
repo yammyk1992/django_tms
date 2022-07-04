@@ -16,7 +16,7 @@ class Profile(models.Model):
     # friends = models.ManyToManyField(User, related_name='friends', blank=True)
 
     def __str__(self):
-        return f'Profile for user {self.user.username}'
+        return f'Профиль для  {self.user.username}'
 
     # меняем язык отображения в админке
     class Meta:
@@ -24,3 +24,4 @@ class Profile(models.Model):
         # для множественного числа
         verbose_name_plural = 'Профили'
         ordering = ['id']
+

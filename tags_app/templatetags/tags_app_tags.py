@@ -13,11 +13,11 @@ def get_tags(filter=None):
         return Tag.objects.filter(pk=filter)
 
 
-@register.inclusion_tag('publication_app/tag.html')
-def show_tags(sort=None, tag_selected=0):
+@register.inclusion_tag('publication_app/base.html')
+def show_tags(sort=None):
     if not sort:
         tags = Tag.objects.all()
     else:
         tags = Tag.objects.order_by(sort)
 
-    return {'tags': tags, 'tag_selected': tag_selected}
+    return {'tags': tags}

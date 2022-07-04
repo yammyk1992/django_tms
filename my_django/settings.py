@@ -80,6 +80,7 @@ TEMPLATES = [
             ],
             'libraries': {
                 'publication_app_tags': 'publication_app.templatetags.publication_app_tags',
+                'tags_app_tags': 'tags_app.templatetags.tags_app_tags',
             }
         },
     },

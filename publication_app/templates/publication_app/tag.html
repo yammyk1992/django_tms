@@ -1,18 +1,16 @@
-<!--{% extends 'base.html' %}-->
-
-<!--{% block content %}-->
-<!--<div class="container mt-1">-->
-<!--    <h2>Все теги:</h2>-->
-<!--    <div class="row">-->
-<!--        <div class="col-md-2">-->
-<!--            <div class="list-group">-->
-<!--                {% for t in tag %}-->
-<!--                <a href="{% url 'tags' t.tag %}" class="list-group-item list-group-item-action">{{ t.tag}}-->
-<!--                <span class="badge bg-primary rounded-pill">{{ t.cnt }}</span>-->
-<!--                </a>-->
-<!--                {% endfor %}-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--{% endblock %}-->
+{% extends 'publication_app/base.html' %}
+{% block tags %}
+<div>
+	<div class="container mt-1">
+    <h2>Все теги:</h2>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group">
+	{% for t in tags %}
+	<a href="{% url 'tags_post' t.tag %}"><button class="list-group-item list-group-item-action">{{ t.tag}}
+		<span class="badge bg-primary rounded-pill"> {{ t.count }} </span></button></a>
+	{% endfor %}
+	</p>
+</div>
+</div>
+{% endblock tags %}
