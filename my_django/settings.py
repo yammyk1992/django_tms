@@ -178,7 +178,6 @@ CACHES = {
 # smpt
 EMAIL_USE_TLS = True
 
-
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = str(os.getenv('EMAIL_HOST_USER'))
@@ -214,3 +213,4 @@ sentry_sdk.init(
     # something more human-readable.
     # release="myapp@1.0.0",
 )
+django_heroku.settings(locals())
