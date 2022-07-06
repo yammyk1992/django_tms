@@ -8,6 +8,9 @@ from drf_spectacular.views import SpectacularRedocView, SpectacularSwaggerView, 
 
 from publication_app.views import pageNotFound
 
+
+def trigger_error(request):
+    division_by_zero = 1 / 0
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('publication_app.urls')),
@@ -21,6 +24,7 @@ urlpatterns = [
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    path('sentry-debug/', trigger_error),
 
 ]
 
