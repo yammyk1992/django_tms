@@ -7,7 +7,7 @@ class LikesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Likes
         fields = "__all__"
-        read_only_fields = "user",
+        read_only_fields = ['user'],
 
     publisher_user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),

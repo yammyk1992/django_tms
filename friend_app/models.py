@@ -5,8 +5,14 @@ from django.db import models
 # Create your models here.
 
 class Friend(models.Model):
-    users = models.ManyToManyField(User)
-    current_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='owner', null=True)
+    users_receivers = models.ForeignKey(User, on_delete=models.CASCADE, related_name='receiver')
+    current_user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender', null=True)
+
+    # меняем язык отображения в админке
+    class Meta:
+        verbose_name = 'Друзья'
+        # для множественного числа
+        verbose_name_plural = 'Друзья'
 
     @classmethod
     def make_friend(cls, current_user, new_friend):
@@ -21,9 +27,3 @@ class Friend(models.Model):
             current_user=current_user
         )
         friend.users.remove(new_friend)
-
-    # меняем язык отображения в админке
-    class Meta:
-        verbose_name = 'Друзья'
-        # для множественного числа
-        verbose_name_plural = 'Друзья'

@@ -11,6 +11,8 @@ from publication_app.views import pageNotFound
 
 def trigger_error(request):
     division_by_zero = 1 / 0
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('publication_app.urls')),

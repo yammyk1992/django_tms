@@ -6,4 +6,10 @@ from friend_app.models import Friend
 class FriendSerializer(serializers.ModelSerializer):
     class Meta:
         model = Friend
-        fields = '__all__'
+        fields = ['users_receivers', ]
+        read_only_fields = ['current_user']
+
+    publisher_sender = serializers.HiddenField(
+        default=serializers.CurrentUserDefault(),
+        source='current_user',
+    )

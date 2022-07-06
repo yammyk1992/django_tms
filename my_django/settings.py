@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'friend_app',
     'subscription_app',
     # 'django_celery_results',
+    'sentry_sdk',
+    'messenger_app',
 ]
 
 MIDDLEWARE = [

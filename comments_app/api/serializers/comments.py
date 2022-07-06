@@ -10,7 +10,7 @@ class CommentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comments
         fields = '__all__'
-        read_only_fields = ('created_at', 'updated_at', 'author')
+        read_only_fields = ['author']
 
     publisher_user = serializers.HiddenField(
         default=serializers.CurrentUserDefault(),

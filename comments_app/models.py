@@ -15,7 +15,10 @@ class Comments(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments", blank=False, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    text_comments = models.TextField(blank=False, null=False)
+    text_comments = models.CharField(max_length=256, blank=False, verbose_name='Комментарий')
+
+    def __str__(self):
+        return f'{self.text_comments}'
 
     class Meta:
         ordering = ['created_at']
