@@ -11,9 +11,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import sentry_sdk
-from django.conf.global_settings import AUTH_USER_MODEL
 from dotenv import load_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
+import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -214,3 +214,4 @@ sentry_sdk.init(
     # release="myapp@1.0.0",
 )
 
+django_heroku.settings(locals())
