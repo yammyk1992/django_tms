@@ -33,9 +33,9 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.SerializerMethodField()
 
     def get_likes_count(self, instance) -> int:
-        return instance.likes_count()
+        return instance.likes.count()
 
     def get_comments_count(self, instance) -> int:
-        return instance.comments_count()
+        return instance.comments.count()
 
 

@@ -7,7 +7,7 @@ from profile_app.models import Profile
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = 'avatar', 'phone', 'github_link'
+        fields = ['photo', 'github_link', 'about']
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):

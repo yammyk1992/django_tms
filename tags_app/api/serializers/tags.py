@@ -7,13 +7,12 @@ class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
         fields = '__all__'
-        exclude = ('posts', 'id')
 
 
 class TagDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        exclude = ['posts', 'id']
+        fields = '__all__'
 
     posts_count = serializers.SerializerMethodField()
 

@@ -23,4 +23,4 @@ class LikeCommentsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LikesComments
-        fields = "user",
+        fields = ["user", ]
