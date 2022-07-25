@@ -27,7 +27,7 @@ load_dotenv(dotenv_path=env_path)
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = str(os.getenv("SECRET_KEY"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -139,13 +139,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = []
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 
 # LOGIN_REDIRECT_URL = '/'
 
@@ -174,16 +174,16 @@ REST_FRAMEWORK = {
 SPECTACULAR_SETTINGS = {
     'COMPONENT_SPLIT_REQUEST': True
 }
-# CELERY_BROKER_URL = 'redis://localhost:6379'
-# CELERY_RESULT_BACKEND = 'django-db'
-CELERY_CACHE_BACKEND = 'default'
-# django setting.
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-        'LOCATION': 'my_cache_table',
-    }
-}
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'django-db'
+CELERY_CACHE_BACKEND = 'django-cache'
+# # django setting.
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION': 'my_cache_table',
+#     }
+# }
 
 # smpt
 EMAIL_USE_TLS = True
@@ -197,35 +197,24 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 REDIS_HOST = '0.0.0.0'
 REDIS_PORT = '6379'
-CELERY_BROKER_URL = 'redis//' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
-CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
 
+
+# Sentry
 sentry_sdk.init(
-    dsn="https://fc286bd014d94b8580f7259d28303ec6@o1306230.ingest.sentry.io/6548467",
-    integrations=[DjangoIntegration()],
+    dsn="https://cada8473c12349149f779dc11a0889c9@o1304180.ingest.sentry.io/6544260",
+    integrations=[
+        DjangoIntegration(),
+    ],
 
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
-    # We recommend adjusting this value in production,
+    # We recommend adjusting this value in production.
     traces_sample_rate=1.0,
 
     # If you wish to associate users to errors (assuming you are using
     # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True,
-
-    # By default the SDK will try to use the SENTRY_RELEASE
-    # environment variable, or infer a git commit
-    # SHA as release, however you may want to set
-    # something more human-readable.
-    # release="myapp@1.0.0",
+    send_default_pii=True
 )
-
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
 
 SIMPLE_JWT = {
     # время жизни токенов
