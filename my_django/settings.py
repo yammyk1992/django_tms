@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     # 'django_celery_results',
     # 'sentry_sdk',
     'messenger_app',
-    'rest_framework_simplejwt',
+    # 'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [

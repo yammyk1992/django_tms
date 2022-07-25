@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/friend_app/migrations/0006_friend_created_at_friend_friendship_result_and_more.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/api/serializers/comments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friend_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friend_app/api/serializers/friend.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/api/serializers/friend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friend_app/api/views/friend.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/api/views/friend.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friend_app/api/views/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/api/views/router.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friend_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/friend_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/likes_app/api/serializers/likes.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/api/serializers/likes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messenger_app/api/views/messenger.py" beforeDir="false" afterPath="$PROJECT_DIR$/messenger_app/api/views/messenger.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_django/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/profile_app/api/serializers/profile.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/api/serializers/profile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/api/serializer/publications.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tags_app/api/serializers/tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/tags_app/api/serializers/tags.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
