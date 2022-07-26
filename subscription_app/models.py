@@ -12,12 +12,15 @@
 
 # Create your models here.
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import models
 
 MEMBERSHIP_CHOICES = (
     ('Premium', 'pre'),
     ('Free', 'free')
 )
+
+User = get_user_model()
 
 
 class Membership(models.Model):
@@ -32,7 +35,7 @@ class Membership(models.Model):
 
 
 class UserMembership(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_membership', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='user_membership', on_delete=models.CASCADE)
     membership = models.ForeignKey(Membership, related_name='user_membership', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):

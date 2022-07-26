@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     # 'sentry_sdk',
     'messenger_app',
     # 'rest_framework_simplejwt',
+    'user_app',
 ]
 
 MIDDLEWARE = [
@@ -215,6 +216,9 @@ sentry_sdk.init(
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
+
+
+AUTH_USER_MODEL = 'user_app.User'
 
 SIMPLE_JWT = {
     # время жизни токенов

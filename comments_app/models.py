@@ -1,13 +1,9 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
-# Create your models here.
-from django.db import models
+from publication_app.models import Post
 
-# Create your models here.
-
-from django.db import models
-
-from publication_app.models import Post, User
+User = get_user_model()
 
 
 class Comments(models.Model):

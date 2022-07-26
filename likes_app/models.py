@@ -1,11 +1,11 @@
-from enum import unique
+from django.contrib.auth import get_user_model
 
-from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
 from comments_app.models import Comments
 from publication_app.models import Post
+
+User = get_user_model()
 
 
 class Likes(models.Model):

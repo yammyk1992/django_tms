@@ -1,11 +1,12 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db import models
 
-# Create your models here.
 from django.urls import reverse
 
 from media_app.models import Media
 from tags_app.models import Tag
+
+User = get_user_model()
 
 
 class Post(models.Model):

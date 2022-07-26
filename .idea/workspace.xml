@@ -2,8 +2,86 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/friend_app/migrations/0007_alter_followrequest_unique_together.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/friend_app/migrations/0002_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media_app/migrations/0002_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/messenger_app/migrations/0002_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/publication_app/migrations/0002_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/subscription_app/migrations/0002_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/api/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/api/serializers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/api/serializers/users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/api/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/api/views/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/api/views/users.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user_app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments_app/migrations/0002_comments_updated_at_alter_comments_author.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/migrations/0002_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments_app/migrations/0003_alter_comments_text_comments.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/comments_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/comments_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/migrations/0002_alter_friend_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/migrations/0003_rename_users_friend_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/migrations/0004_rename_user_friend_users.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/migrations/0005_remove_friend_users_friend_users_receivers_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/migrations/0006_friend_created_at_friend_friendship_result_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/migrations/0007_alter_followrequest_unique_together.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/friend_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/friend_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/likes_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/likes_app/migrations/0002_alter_likes_post_alter_likes_user_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/migrations/0002_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/likes_app/migrations/0003_likes_created_time.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/likes_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/likes_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/media_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/media_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messenger_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/messenger_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messenger_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/messenger_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_django/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/migrations/0002_profile_about_profile_github_link_profile_phone.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/migrations/0003_profile_friends.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/migrations/0004_alter_profile_options_rename_avatar_profile_photo_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/profile_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0002_remove_post_image_postimage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0003_alter_postimage_post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0004_post_image_delete_postimage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0005_remove_post_images_post_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0006_profile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0007_alter_profile_about_alter_profile_github_link_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0008_alter_profile_about.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0009_create_profile_for_existing_users.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0010_alter_profile_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/profile_app/migrations/0002_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0011_tag_alter_post_options_remove_post_nationality_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0012_alter_tag_options_post_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0013_alter_post_tags.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0014_remove_post_image_post_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0015_alter_post_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0016_remove_post_tags_delete_tag.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0017_alter_post_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0018_delete_profile.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0019_imagepost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0020_post_tag.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0021_remove_category_slug_alter_post_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0022_alter_imagepost_image.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/0023_alter_post_options.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publication_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/publication_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/subscription_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription_app/migrations/0002_remove_membership_slug.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/subscription_app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags_app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/tags_app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags_app/migrations/0002_alter_tag_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags_app/migrations/0003_rename_name_tag_tag_remove_tag_posts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tags_app/migrations/0004_alter_tag_options.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +106,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
   </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="f2aebffa-cd0d-4085-8f13-bc646f74e6a3" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
@@ -51,28 +132,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/PycharmProjects/django/tags_app&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/mac/PycharmProjects/django/user_app",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/user_app" />
       <recent name="$PROJECT_DIR$/tags_app" />
-      <recent name="$PROJECT_DIR$/friend_app/api/views" />
-      <recent name="$PROJECT_DIR$/friend_app/serializers" />
+      <recent name="$PROJECT_DIR$/subscription_app" />
+      <recent name="$PROJECT_DIR$/publication_app" />
+      <recent name="$PROJECT_DIR$/profile_app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/user_app/api" />
       <recent name="$PROJECT_DIR$/profile_app/static/image" />
       <recent name="$PROJECT_DIR$/publication_app/static/publication_app/images" />
       <recent name="$PROJECT_DIR$/publication_app/templates/profile_app" />
       <recent name="$PROJECT_DIR$/publication_app/templates" />
-      <recent name="$PROJECT_DIR$/profile_app/temlpates/profile_app" />
     </key>
   </component>
   <component name="RunManager" selected="Python.manage">
