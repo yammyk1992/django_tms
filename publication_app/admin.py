@@ -4,21 +4,6 @@ from django.utils.safestring import mark_safe
 from .models import *
 
 
-# admin.site.unregister(User)
-
-
-# регистрация модели Tag
-# admin.site.register(Tag)
-# @admin.register(Tag)
-# class TegAdmin(admin.ModelAdmin):
-#     prepopulated_fields = {'tags': ('title',)}
-#
-
-# @admin.register(Profile)
-# class ProfileAdmin(admin.ModelAdmin):
-#     list_display = ('user', 'avatar', 'phone', 'about', 'github_link')
-
-
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     # колонки в админке

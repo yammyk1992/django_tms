@@ -98,7 +98,7 @@ class AddPage(View):
             post_object = form.save(commit=False)
             post_object.user = request.user
             post_object.save()
-            send_my_mail()
+            send_my_mail.delay()
             for spam in User.objects.all():
                 send_mail(
                     'Созданы новые посты!',
@@ -106,20 +106,6 @@ class AddPage(View):
                     str(os.getenv('EMAIL_HOST_USER')),  # Enter your email address
                     [spam.email]
                 )
-            # post = Post.objects.create(
-            #     user=request.user,
-            #     title=form.cleaned_data['title'],
-            #     content=form.cleaned_data['content'],
-            #     is_public=form.cleaned_data['is_public'],
-            #     slug=form.cleaned_data['slug'],
-            #     category=form.cleaned_data['category'],
-
-            # )
-
-            # for tag in tag:
-            #     post.tag.add(tag)
-
-            # return redirect('home')
 
             for f in image:
                 Media.objects.create(post=post_object, image_post=f)
@@ -129,13 +115,6 @@ class AddPage(View):
             'title': 'New Post',
             'form': form
         })
-
-        # else:
-        #     context = {
-        #         'title': 'Добавление нового поста',
-        #         'form': form,
-        #     }
-        #     return render(request, 'publication_app/addpage.html', context)
 
 
 def contact(request):
@@ -152,25 +131,6 @@ class ShowPost(DataMixin, DetailView):
         context = super().get_context_data(**kwargs)
         c_def = self.get_user_context(title=context['post'])
         return dict(list(context.items()) + list(c_def.items()))
-
-
-# def post_view(request):
-#     posts = Post.objects.all()
-#     return render(request, 'publication_app/main_page.html', {'posts': posts})
-
-
-# def show_post(request, id):
-#     post = get_object_or_404(Post, id=id)
-#     photos = PostImage.objects.filter(post=post)
-#
-#     context = {
-#         'post': post,
-#         'photos': photos,
-#         # 'menu': menu,
-#         # 'title': post.title,
-#         # 'cat_selected': post.category_id,
-#     }
-#     return render(request, 'publication_app/post.html', context=context)
 
 
 def pageNotFound(request, exception):
@@ -195,28 +155,6 @@ class PostCategory(DataMixin, ListView):
     def get_queryset(self):
         return Post.objects.filter(category__id=self.kwargs['category_id'], is_public=True)
 
-
-# class RegisterUser(DataMixin, CreateView):
-#     form_class = RegisterUserForm
-#     template_name = 'publication_app/register.html'
-#     success_url = reverse_lazy('login')
-#
-#     # при успешной регистрации будем сразу авторизовывать
-#     def form_valid(self, form):
-#         user = form.save()
-#         send_mail(
-#             'Спасибо за регистрацию',
-#             'Мы будем присылать вам много спама, но не долго!!!',
-#             from_email=str(os.getenv('EMAIL_HOST_USER')),
-#             recipient_list=[user.email],
-#             fail_silently=False)
-#
-#         return super().form_valid(form)
-#
-#     def get_context_data(self, *, object_list=None, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         c_def = self.get_user_context(title='Регистрация')
-#         return dict(list(context.items()) + list(c_def.items()))
 
 class Register(View):
     """Класс регистрации пользователя"""
@@ -245,7 +183,7 @@ class Register(View):
             send_email_task()
             send_mail(
                 'Спасибо за регистрацию',
-                'Мы будем присылать вам много спама, но не долго!!!',
+                'Добро пожаловать!',
                 str(os.getenv('EMAIL_HOST_USER')),
                 [user.email]),
             login(request, user)
