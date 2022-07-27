@@ -238,9 +238,10 @@ class Register(View):
             user = form.save()
             send_email_task()
             send_mail(
-                'Спасибо за регистрацию!',
+                'Спасибо за регистрацию!!',
                 str(os.getenv('EMAIL_HOST_USER')),
-                [user.email]),
+                [user.email],
+                fail_silently=False)
             login(request, user)
             return redirect('/')
         context = {
