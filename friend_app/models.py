@@ -3,7 +3,6 @@ from django.db import models
 
 
 # Create your models here.
-
 class Friend(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='friendship_request')
     user_invite = models.ForeignKey(User, on_delete=models.CASCADE, related_name='friendship')

@@ -11,7 +11,7 @@
 #         return self.user.username
 
 # Create your models here.
-from django.conf import settings
+from django.contrib.auth.models import User
 from django.db import models
 
 MEMBERSHIP_CHOICES = (
@@ -32,7 +32,7 @@ class Membership(models.Model):
 
 
 class UserMembership(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='user_membership', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name='user_membership', on_delete=models.CASCADE)
     membership = models.ForeignKey(Membership, related_name='user_membership', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):

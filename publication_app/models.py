@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
 from django.urls import reverse
 
 from media_app.models import Media
