@@ -42,6 +42,8 @@ class AddPageForm(forms.ModelForm):
         fields = ['title', 'content', 'is_public', 'category', 'tag', 'slug']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
+            'category': forms.TextInput(attrs={'class': 'form-input'}),
+            'tag': forms.TextInput(attrs={'class': 'form-input'}),
             'content': forms.Textarea(attrs={'cols': 68, 'rows': 10}),
         }
 
