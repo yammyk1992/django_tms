@@ -19,7 +19,7 @@ class TagsView(DataMixin, ListView):
     # создаём динамический контекст чтобы передать меню
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        t_def = self.get_user_context(title='Тэги - ' + str(context['tags'][0].tag),
+        t_def = self.get_user_context(title='Тэги',
                                       tag_selected=context['tags'][0].tag)
         return dict(list(context.items()) + list(t_def.items()))
 

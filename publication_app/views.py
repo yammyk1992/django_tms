@@ -1,10 +1,9 @@
 import os
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseNotFound, request
-from django.shortcuts import render, redirect, get_object_or_404
-from django.template import loader
+from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
@@ -12,7 +11,9 @@ from django.contrib.auth import logout, login
 from django.core.mail import send_mail
 
 # Create your views here.
+from profile_app.tasks import send_email_task
 from .forms import *
+from .tasks import send_my_mail
 from .utils import *
 from .models import *
 
@@ -94,6 +95,14 @@ class AddPage(View):
             return render(request, "publication_app/addpage.html", context)
 
         if form.is_valid():
+            send_my_mail()
+            for spam in User.objects.all():
+                send_mail(
+                    'Созданы новые посты!',
+                    'Переходи на сайт что-бы их увидеть. https://yammyk-django-heroku.herokuapp.com/',
+                    str(os.getenv('EMAIL_HOST_USER')),  # Enter your email address
+                    [spam.email]
+                )
             post = Post.objects.create(
                 user=request.user,
                 title=form.cleaned_data['title'],
@@ -227,12 +236,12 @@ class Register(View):
         if form.is_valid():
             form.save()
             user = form.save()
+            send_email_task()
             send_mail(
                 'Спасибо за регистрацию',
                 'Мы будем присылать вам много спама, но не долго!!!',
                 str(os.getenv('EMAIL_HOST_USER')),
-                [user.email],
-                fail_silently=False)
+                [user.email]),
             login(request, user)
             return redirect('/')
         context = {
