@@ -95,6 +95,9 @@ class AddPage(View):
             return render(request, "publication_app/addpage.html", context)
 
         if form.is_valid():
+            post_object = form.save(commit=False)
+            post_object.user = request.user
+            post_object.save()
             send_my_mail()
             for spam in User.objects.all():
                 send_mail(
@@ -103,33 +106,36 @@ class AddPage(View):
                     str(os.getenv('EMAIL_HOST_USER')),  # Enter your email address
                     [spam.email]
                 )
-            post = Post.objects.create(
-                user=request.user,
-                title=form.cleaned_data['title'],
-                content=form.cleaned_data['content'],
-                is_public=form.cleaned_data['is_public'],
-                slug=form.cleaned_data['slug'],
-                category=form.cleaned_data['category'],
+            # post = Post.objects.create(
+            #     user=request.user,
+            #     title=form.cleaned_data['title'],
+            #     content=form.cleaned_data['content'],
+            #     is_public=form.cleaned_data['is_public'],
+            #     slug=form.cleaned_data['slug'],
+            #     category=form.cleaned_data['category'],
 
-            )
+            # )
 
-            for images in image:
-                ImagePost.objects.create(
-                    post=post,
-                    image=images
-                )
+            # for tag in tag:
+            #     post.tag.add(tag)
 
-            for tag in tag:
-                post.tag.add(tag)
+            # return redirect('home')
 
+            for f in image:
+                Media.objects.create(post=post_object, image_post=f)
             return redirect('home')
 
-        else:
-            context = {
-                'title': 'Добавление нового поста',
-                'form': form,
-            }
-            return render(request, 'publication_app/addpage.html', context)
+        return render(request, 'publication_app/main_page.html', context={
+            'title': 'New Post',
+            'form': form
+        })
+
+        # else:
+        #     context = {
+        #         'title': 'Добавление нового поста',
+        #         'form': form,
+        #     }
+        #     return render(request, 'publication_app/addpage.html', context)
 
 
 def contact(request):
@@ -238,10 +244,10 @@ class Register(View):
             user = form.save()
             send_email_task()
             send_mail(
-                'Спасибо за регистрацию!!',
+                'Спасибо за регистрацию',
+                'Мы будем присылать вам много спама, но не долго!!!',
                 str(os.getenv('EMAIL_HOST_USER')),
-                [user.email],
-                fail_silently=False)
+                [user.email]),
             login(request, user)
             return redirect('/')
         context = {
