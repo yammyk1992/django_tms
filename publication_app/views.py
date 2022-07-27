@@ -76,6 +76,7 @@ class AddPage(View):
 
         context = {
             'form': form,
+            'title': 'Мой пост'
         }
 
         return render(request, 'publication_app/addpage.html', context)
@@ -98,7 +99,7 @@ class AddPage(View):
             post_object = form.save(commit=False)
             post_object.user = request.user
             post_object.save()
-            send_my_mail.delay()
+            send_my_mail()
             for spam in User.objects.all():
                 send_mail(
                     'Созданы новые посты!',
@@ -112,7 +113,7 @@ class AddPage(View):
             return redirect('home')
 
         return render(request, 'publication_app/main_page.html', context={
-            'title': 'New Post',
+            'title': 'Новый пост',
             'form': form
         })
 
