@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6710b4e-55ce-4b75-a1d6-6bf8a82729c2" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/friend_app/migrations/0007_alter_followrequest_unique_together.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_django/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_django/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +28,9 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/.gitignore" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Procfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/my_django/settings.py" root0="FORCE_HIGHLIGHTING" />
@@ -57,22 +58,24 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mac/PycharmProjects/django/tags_app&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/mac/PycharmProjects/django_tms&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$USER_HOME$/Desktop/PycharmProjects/django" />
       <recent name="$PROJECT_DIR$/tags_app" />
       <recent name="$PROJECT_DIR$/friend_app/api/views" />
       <recent name="$PROJECT_DIR$/friend_app/serializers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/profile_app/static/image" />
       <recent name="$PROJECT_DIR$/publication_app/static/publication_app/images" />
       <recent name="$PROJECT_DIR$/publication_app/templates/profile_app" />
       <recent name="$PROJECT_DIR$/publication_app/templates" />
-      <recent name="$PROJECT_DIR$/profile_app/temlpates/profile_app" />
     </key>
   </component>
   <component name="RunManager" selected="Python.manage">
