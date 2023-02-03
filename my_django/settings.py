@@ -14,7 +14,6 @@ from pathlib import Path
 import sentry_sdk
 from dotenv import load_dotenv
 from sentry_sdk.integrations.django import DjangoIntegration
-import django_heroku
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -250,4 +249,3 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-django_heroku.settings(locals())
