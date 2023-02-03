@@ -54,10 +54,10 @@ INSTALLED_APPS = [
     'profile_app',
     'friend_app',
     'subscription_app',
-    # 'django_celery_results',
-    # 'sentry_sdk',
+    'django_celery_results',
+    'sentry_sdk',
     'messenger_app',
-    # 'rest_framework_simplejwt',
+    'rest_framework_simplejwt',
     'django_celery_beat',
 ]
 
@@ -178,13 +178,7 @@ SPECTACULAR_SETTINGS = {
 CELERY_BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_CACHE_BACKEND = 'django-cache'
-# # django setting.
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-#         'LOCATION': 'my_cache_table',
-#     }
-# }
+
 
 # smpt
 EMAIL_USE_TLS = True

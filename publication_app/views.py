@@ -1,10 +1,9 @@
 import os
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseNotFound, request
-from django.shortcuts import render, redirect, get_object_or_404
-from django.template import loader
+from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView
@@ -12,6 +11,7 @@ from django.contrib.auth import logout, login
 from django.core.mail import send_mail
 
 # Create your views here.
+from profile_app.tasks import send_email_task
 from .forms import *
 from .utils import *
 from .models import *
@@ -139,25 +139,6 @@ class ShowPost(DataMixin, DetailView):
         return dict(list(context.items()) + list(c_def.items()))
 
 
-# def post_view(request):
-#     posts = Post.objects.all()
-#     return render(request, 'publication_app/main_page.html', {'posts': posts})
-
-
-# def show_post(request, id):
-#     post = get_object_or_404(Post, id=id)
-#     photos = PostImage.objects.filter(post=post)
-#
-#     context = {
-#         'post': post,
-#         'photos': photos,
-#         # 'menu': menu,
-#         # 'title': post.title,
-#         # 'cat_selected': post.category_id,
-#     }
-#     return render(request, 'publication_app/post.html', context=context)
-
-
 def pageNotFound(request, exception):
     return HttpResponseNotFound("<h1> Страница не найдена </h1>")
 
@@ -180,28 +161,6 @@ class PostCategory(DataMixin, ListView):
     def get_queryset(self):
         return Post.objects.filter(category__id=self.kwargs['category_id'], is_public=True)
 
-
-# class RegisterUser(DataMixin, CreateView):
-#     form_class = RegisterUserForm
-#     template_name = 'publication_app/register.html'
-#     success_url = reverse_lazy('login')
-#
-#     # при успешной регистрации будем сразу авторизовывать
-#     def form_valid(self, form):
-#         user = form.save()
-#         send_mail(
-#             'Спасибо за регистрацию',
-#             'Мы будем присылать вам много спама, но не долго!!!',
-#             from_email=str(os.getenv('EMAIL_HOST_USER')),
-#             recipient_list=[user.email],
-#             fail_silently=False)
-#
-#         return super().form_valid(form)
-#
-#     def get_context_data(self, *, object_list=None, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         c_def = self.get_user_context(title='Регистрация')
-#         return dict(list(context.items()) + list(c_def.items()))
 
 class Register(View):
     """Класс регистрации пользователя"""
@@ -227,6 +186,7 @@ class Register(View):
         if form.is_valid():
             form.save()
             user = form.save()
+            send_email_task()
             send_mail(
                 'Спасибо за регистрацию',
                 'Мы будем присылать вам много спама, но не долго!!!',
