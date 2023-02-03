@@ -1,7 +1,7 @@
 from rest_framework import filters
 from rest_framework.mixins import DestroyModelMixin, ListModelMixin, CreateModelMixin, UpdateModelMixin, \
     RetrieveModelMixin
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import GenericViewSet, ModelViewSet
 
 from ..serializer.publications import PostSerializer
 from ...models import Post

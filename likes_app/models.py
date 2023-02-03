@@ -13,9 +13,6 @@ class Likes(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="likes", null=False, blank=False)
     created_time = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f'Лайк от {self.user} для поста {self.post}'
-
     # составной индекс для того что бы можно было лайкнуть только один раз один пост
     class Meta:
         unique_together = (('user', 'post'),)

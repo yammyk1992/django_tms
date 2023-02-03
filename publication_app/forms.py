@@ -1,10 +1,19 @@
 from django import forms
 from django.core.exceptions import ValidationError
-
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import *
 from django.contrib.auth.models import User
 
+
+# создание моделей не связанных с БД
+# class AddPostForm(forms.Form):
+#     title = forms.CharField(max_length=255, label='Заголовок')
+#     slug = forms.SlugField(max_length=255, label='URL')
+#     content = forms.CharField(widget=forms.Textarea(attrs={'cols': 68, 'rows': 10}), label='Контент')
+#     is_published = forms.BooleanField(label='Публикация', required=False, initial=True)
+#     category = forms.ModelChoiceField(queryset=Category.objects.all(), label='Категории',
+#                                       empty_label='Категория не выбрана')
 
 # создание моделей связанных с БД
 class AddPageForm(forms.ModelForm):
