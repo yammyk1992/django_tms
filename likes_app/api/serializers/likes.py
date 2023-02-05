@@ -1,11 +1,11 @@
 from rest_framework import serializers
 
-from likes_app.models import Likes, LikesComments
+from likes_app.models import PostLikes, LikesComments
 
 
 class LikesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Likes
+        model = PostLikes
         fields = "__all__"
         read_only_fields = ['user', ]
 

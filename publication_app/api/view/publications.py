@@ -24,4 +24,4 @@ class PostsViewSet(ModelViewSet):
     # включаем поиск и сортировку в API
     filter_backends = [filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['created_at', 'id']
-    search_fields = ['=id', 'title', 'content', 'category_id', '^user__username']
+    search_fields = ['=id', 'title', 'content', 'category_id', 'user__username']

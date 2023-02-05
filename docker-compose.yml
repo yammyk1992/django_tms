@@ -5,6 +5,7 @@ services:
 
     volumes:
       - ./my_django/:/PycharmProjects/django_tms/
+#      - ./my_django/media/:/my_django/media/
     ports:
       - '8000:8000'
     environment:
@@ -22,4 +23,5 @@ services:
      - POSTGRES_USER=dbuser
      - POSTGRES_PASSWORD=pass
 
-
+# миграции делаем в консоли
+#docker-compose run --rm web-app sh -c "python manage.py migrate"
